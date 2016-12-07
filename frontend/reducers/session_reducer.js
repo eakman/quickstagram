@@ -9,11 +9,12 @@ const initialState = {
 };
 
 const sessionReducer = (state=initialState, action) => {
+  // debugger
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, initialState, action.currentUser);
+      return Object.assign({}, initialState, {currentUser: action.currentUser});
     case RECEIVE_ERRORS:
-      return Object.assign({}, initialState, action.errors);
+      return Object.assign({}, initialState, {errors: action.errors});
     default:
       return initialState;
   }

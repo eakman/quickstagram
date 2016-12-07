@@ -4,8 +4,13 @@ import SessionForm from './session_form';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = ({ session }) => {
+  // debugger
+
+  return ({
+    currentUser: session.currentUser,
+    errors: session.errors
+  });
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -10,7 +10,9 @@ class Api::SessionsController < ApplicationController
       log_in(@user)
       render 'api/users/user', user: @user
     else
-      render json: ['something went wrong']
+      render( json: ["The username you entered doesn't belong to an account. Please check your username and try again."],
+              status: 401
+            )
     end
   end
 

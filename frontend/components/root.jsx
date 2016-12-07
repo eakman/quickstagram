@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from './app';
 import SessionFormContainer from './session_form_container';
+import Feed from './feed';
 import { Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 const Root = ({ store }) => {
@@ -11,8 +12,8 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route className='app' path='/' component={ App }>
-          <IndexRoute component={ SessionFormContainer } />
-
+          <IndexRoute component={ SessionFormContainer }/>
+          <Route path='/feed' component={ Feed }/>
         </Route>
       </Router>
     </Provider>

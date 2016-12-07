@@ -1,4 +1,5 @@
 import React from 'react';
+import Errors from './errors';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -7,13 +8,22 @@ class SessionForm extends React.Component {
       username: '',
       password: ''
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // componentWillMount() {
+  //   debugger
+  //   if (this.props.currentUser.username !== undefined) {
+  //     this.props.router.push('/feed');
+  //   }
+  //
+  // }
+
   handleSubmit(e) {
     e.preventDefault();
-    return this.props.logIn(this.state).then(console.log);
+    return this.props.logIn(this.state).then(() => this.props.router.push('/feed'));
   }
 
   handleChange(e) {
@@ -25,8 +35,14 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let errors = '';
+    if (this.props.errors.length !== 0) {
+
+      errors = <Errors errors={ this.props.errors } />
+    }
+
     return (
-      //jshint ignore: start
+
       <div className="initial-container">
         <img className="iPhones" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/home-phones.png/38825c9d5aa2.png"/>
         <section className="log-in-sign-up group">
@@ -47,6 +63,9 @@ class SessionForm extends React.Component {
               <div className="h-line"></div>
             </div>
             <a href="#" className="guest">Sign in as a guest</a>
+
+            { errors }
+
           </section>
           <section className='sign-up group'>
             <p>Don&#39;t have an account yet?<a href="#"> Sign up</a></p>
@@ -54,7 +73,7 @@ class SessionForm extends React.Component {
         </section>
       </div>
 
-      //jshint ignore: end
+
     );
   }
 }

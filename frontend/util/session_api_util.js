@@ -1,3 +1,5 @@
+import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+
 export const signUp = (user) => {
   return $.ajax({
     method: 'POST',
