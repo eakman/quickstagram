@@ -10,8 +10,9 @@ const Root = ({ store }) => {
     //jshint ignore: start
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path='/' component={ App }>
+        <Route className='app' path='/' component={ App }>
           <IndexRoute component={ SessionFormContainer } />
+
         </Route>
       </Router>
     </Provider>
