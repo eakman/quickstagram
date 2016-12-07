@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Errors = (props) => {
-  // debugger
+  
   // const errors = props.errors.map((error, idx) => {
   //
   //     return (

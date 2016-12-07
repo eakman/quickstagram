@@ -14,7 +14,6 @@ class SessionForm extends React.Component {
   }
 
   // componentWillMount() {
-  //   debugger
   //   if (this.props.currentUser.username !== undefined) {
   //     this.props.router.push('/feed');
   //   }
