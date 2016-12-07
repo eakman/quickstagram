@@ -1,8 +1,12 @@
-//jshint ignore: start
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Root from './components/root';
+import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('content');
-  ReactDOM.render(<h1>quickstagram</h1>, root);
+  const store = configureStore();
+  //jshint ignore: start
+  ReactDOM.render(<Root store={ store } />, root);
+  //jshint ignore: end
 });

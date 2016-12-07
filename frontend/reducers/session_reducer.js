@@ -4,11 +4,11 @@ import {
 } from '../actions/session_actions';
 
 const initialState = {
-  currentUser: null,
+  currentUser: {},
   errors: []
 };
 
-const sessionReducer = (action, state=initialState) => {
+const sessionReducer = (state=initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, initialState, action.currentUser);
