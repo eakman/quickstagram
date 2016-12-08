@@ -6,7 +6,7 @@ import configureStore from './store/store';
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('content');
   const store = configureStore();
-  //jshint ignore: start
+  console.log('hello');
   ReactDOM.render(<Root store={ store } />, root);
-  //jshint ignore: end
+  console.log('eitan');
 });
