@@ -16,16 +16,21 @@ class SessionForm extends React.Component {
     this.toggleFormType = this.toggleFormType.bind(this);
   }
 
-  guestLogin() {
-    const guest = {username: 'user1', password: 'password'};
+  guestLogin(e) {
+    // debugger
+    e.preventDefault();
+    const guest = {username: 'user2', password: 'password'};
     return this.props.logIn(guest).then(() => this.props.router.push('/feed'));
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.formType === 'Log in'){
+    const user = {username: this.state.username, password: this.state.password};
+    if (this.state.formType === 'Log in'){
+      debugger
       return this.props.logIn(this.state).then(() => this.props.router.push('/feed'));
     } else {
+      debugger
       return this.props.signUp(this.state).then(() => this.props.router.push('/feed'));
     }
   }
@@ -39,10 +44,9 @@ class SessionForm extends React.Component {
   }
 
   toggleFormType() {
-    debugger
+
     if (this.state.formType === 'Log in') {
       this.setState({formType: 'Sign up'});
-
     } else {
       this.setState({formType: 'Log in'})
     }
@@ -58,8 +62,9 @@ class SessionForm extends React.Component {
     return (
 
       <div className="initial-container">
+        <div className="iContainer group">
         <img className="iPhones" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/home-phones.png/38825c9d5aa2.png" />
-
+        </div>
         <section className="log-in-sign-up group">
           <section className="log-in group">
               <form className="log-in-form group" onSubmit={ this.handleSubmit }>
@@ -77,7 +82,7 @@ class SessionForm extends React.Component {
               <figure className="or">OR</figure>
               <div className="h-line"></div>
             </div>
-            <a href="#" className="guest" onClick={ this.guestLogin }>Sign in as a guest</a>
+            <button className="guest" onClick={ this.guestLogin }>Sign in as a guest</button>
 
             { errors }
 

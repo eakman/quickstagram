@@ -11,6 +11,8 @@
         "api/users/current_user.json.jbuilder",
         user: current_user
       ).html_safe %>
+    <% else %>
+      window.currentUser = null
     <% end %>
   </script>
 

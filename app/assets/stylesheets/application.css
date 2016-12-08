@@ -193,7 +193,8 @@ a {
   text-align: center;
   color: #385185;
   top: 12px;
-
+  background-color: white;
+  border: none;
 }
 
 .log-in-form {
