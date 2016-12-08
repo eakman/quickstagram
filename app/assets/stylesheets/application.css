@@ -53,6 +53,10 @@ a {
   clear: both;
 }
 
+.iContainer {
+  position: relative;
+}
+
 .iPhones {
 
   height: 618px;
@@ -64,6 +68,13 @@ a {
   margin-left: -19px;
 }
 
+.screen-shot {
+  position: absolute;
+  width: 240px;
+  height: 428px;
+  top: 130px;
+  left: 132px;
+}
 
 .initial-container {
   width: 1200px;
