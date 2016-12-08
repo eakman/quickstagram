@@ -228,7 +228,7 @@ a {
   font-size: 50px;
 }
 
-.log-in-form input, button {
+.log-in-form input, .log-in-form button {
   display: block;
 
   width: 95%;

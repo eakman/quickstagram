@@ -7,7 +7,9 @@ class SessionForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      formType: 'Log in'
+      formType: 'Log in',
+      accountStatusText: "Don't have an account yet?",
+      accountStatusLinkText: 'Sign up'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,10 +29,8 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = {username: this.state.username, password: this.state.password};
     if (this.state.formType === 'Log in'){
-      debugger
       return this.props.logIn(this.state).then(() => this.props.router.push('/feed'));
     } else {
-      debugger
       return this.props.signUp(this.state).then(() => this.props.router.push('/feed'));
     }
   }
@@ -46,9 +46,19 @@ class SessionForm extends React.Component {
   toggleFormType() {
 
     if (this.state.formType === 'Log in') {
-      this.setState({formType: 'Sign up'});
+      this.setState(
+        {
+          formType: 'Sign up',
+          accountStatusText: 'Have an account?',
+          accountStatusLinkText: 'Log in'
+        });
     } else {
-      this.setState({formType: 'Log in'})
+      this.setState(
+        {
+          formType: 'Log in',
+          accountStatusText: 'Don&#39;t have an account yet?',
+          accountStatusLinkText: 'Sign up'
+      });
     }
   }
 
@@ -90,8 +100,8 @@ class SessionForm extends React.Component {
 
           </section>
           <section className='sign-up group'>
-            <p>Don&#39;t have an account yet?<a href="#"
-                onClick={ this.toggleFormType }> Sign up</a></p>
+            <p> { this.state.accountStatusText } <a href="#"
+                onClick={ this.toggleFormType }> { this.state.accountStatusLinkText } </a></p>
           </section>
         </section>
       </div>

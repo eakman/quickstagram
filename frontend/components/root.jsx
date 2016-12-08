@@ -9,17 +9,17 @@ const Root = ({ store }) => {
 
   const redirectIfLoggedIn = (nextState, replace) => {
     // debugger
-    if (window.currentUser) {
+    if (store.getState().session.currentUser === {}) {
       replace('/feed');
     }
   };
 
-  // const redirectIfNotLoggedIn = (nextState, replace) => {
-  //
-  //   if (window.currentUser === undefined) {
-  //     replace('/');
-  //   }
-  // };
+  const redirectIfNotLoggedIn = (nextState, replace) => {
+
+    if (!store.getState().session.currentUser) {
+      replace('/');
+    }
+  };
 
   return (
     //jshint ignore: start
@@ -28,7 +28,7 @@ const Root = ({ store }) => {
         <Route className='app' path='/' component={ App } >
           <IndexRoute
             component={ SessionFormContainer } onEnter={ redirectIfLoggedIn }/>
-          <Route path='/feed' component={ FeedContainer }/>
+          <Route path='/feed' component={ FeedContainer } onEnter={ redirectIfNotLoggedIn }/>
         </Route>
       </Router>
     </Provider>

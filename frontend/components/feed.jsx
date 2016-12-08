@@ -15,7 +15,6 @@ class Feed extends React.Component {
   render() {
     return (
       <div>
-        <h2>ldksajf</h2>
         <h1>Feed</h1>
         <button onClick={this.handleLogOut}>Log out</button>
       </div>
