@@ -4,7 +4,7 @@ import {
 } from '../actions/session_actions';
 
 const initialState = {
-  currentUser: {},
+  currentUser: null,
   errors: []
 };
 

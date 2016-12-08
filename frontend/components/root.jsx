@@ -9,7 +9,7 @@ const Root = ({ store }) => {
 
   const redirectIfLoggedIn = (nextState, replace) => {
     // debugger
-    if (store.getState().session.currentUser === {}) {
+    if (store.getState().session.currentUser) {
       replace('/feed');
     }
   };

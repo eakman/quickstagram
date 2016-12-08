@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
       this.setState(
         {
           formType: 'Log in',
-          accountStatusText: 'Don&#39;t have an account yet?',
+          accountStatusText: "Don't have an account yet?",
           accountStatusLinkText: 'Sign up'
       });
     }
