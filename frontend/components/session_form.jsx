@@ -6,12 +6,14 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      formType: 'Log in'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
+    this.toggleFormType = this.toggleFormType.bind(this);
   }
 
   guestLogin() {
@@ -21,7 +23,11 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    return this.props.logIn(this.state).then(() => this.props.router.push('/feed'));
+    if (this.formType === 'Log in'){
+      return this.props.logIn(this.state).then(() => this.props.router.push('/feed'));
+    } else {
+      return this.props.signUp(this.state).then(() => this.props.router.push('/feed'));
+    }
   }
 
   handleChange(e) {
@@ -29,6 +35,16 @@ class SessionForm extends React.Component {
         this.setState({username: e.currentTarget.value});
       } else {
         this.setState({password: e.currentTarget.value});
+    }
+  }
+
+  toggleFormType() {
+    debugger
+    if (this.state.formType === 'Log in') {
+      this.setState({formType: 'Sign up'});
+
+    } else {
+      this.setState({formType: 'Log in'})
     }
   }
 
@@ -54,7 +70,7 @@ class SessionForm extends React.Component {
                 <input type='password' placeholder='Password' name='password'
                   value={ this.state.password } onChange={ this.handleChange } />
 
-              <button>Log in</button>
+              <button>{this.state.formType}</button>
             </form>
             <div className="or-container group">
               <div className="h-line"></div>
@@ -67,7 +83,8 @@ class SessionForm extends React.Component {
 
           </section>
           <section className='sign-up group'>
-            <p>Don&#39;t have an account yet?<a href="#"> Sign up</a></p>
+            <p>Don&#39;t have an account yet?<a href="#"
+                onClick={ this.toggleFormType }> Sign up</a></p>
           </section>
         </section>
       </div>
