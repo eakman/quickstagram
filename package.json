@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
@@ -38,5 +39,9 @@
   "devDependencies": {
     "eslint": "^3.11.1",
     "eslint-config-google": "^0.7.1"
+  },
+  "engines": {
+    "node": "7.2.0",
+    "npm": "4.0.2"
   }
 }
