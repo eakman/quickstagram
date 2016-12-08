@@ -24,14 +24,14 @@ updated_at | timestamp | not null
 ## Posts
 
 column name |	data type |	details
----|---|---
-id | integer | not null, primary key
-user_id | integer | not null, foreign key
-picture_url | string | not null
-description | text | null
-location | string | null
-created_at | timestamp | not null
-updated_at | timestamp | not null
+------------|-----------|--------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key
+picture_url | string    | not null
+description | text      | null
+location    | string    | null
+created_at  | timestamp | not null
+updated_at  | timestamp | not null
 
 ## Comments
 

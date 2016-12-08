@@ -1,10 +1,15 @@
 import React from 'react';
+import Posts from './posts';
 
 class Feed extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+
     this.handleLogOut = this.handleLogOut.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getAllPosts(this.props.currentUser);
   }
 
   handleLogOut() {
@@ -16,7 +21,8 @@ class Feed extends React.Component {
     return (
       <div>
         <h1>Feed</h1>
-        <button onClick={this.handleLogOut}>Log out</button>
+        <button onClick={ this.handleLogOut }>Log out</button>
+        <Posts posts={ this.props.posts.posts }/>
       </div>
     );
   }
