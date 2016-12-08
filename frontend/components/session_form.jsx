@@ -11,14 +11,13 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
-  // componentWillMount() {
-  //   if (this.props.currentUser.username !== undefined) {
-  //     this.props.router.push('/feed');
-  //   }
-  //
-  // }
+  guestLogin() {
+    const guest = {username: 'user1', password: 'password'};
+    return this.props.logIn(guest).then(() => this.props.router.push('/feed'));
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -43,7 +42,8 @@ class SessionForm extends React.Component {
     return (
 
       <div className="initial-container">
-        <img className="iPhones" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/home-phones.png/38825c9d5aa2.png"/>
+        <img className="iPhones" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/home-phones.png/38825c9d5aa2.png" />
+
         <section className="log-in-sign-up group">
           <section className="log-in group">
               <form className="log-in-form group" onSubmit={ this.handleSubmit }>
@@ -61,7 +61,7 @@ class SessionForm extends React.Component {
               <figure className="or">OR</figure>
               <div className="h-line"></div>
             </div>
-            <a href="#" className="guest">Sign in as a guest</a>
+            <a href="#" className="guest" onClick={ this.guestLogin }>Sign in as a guest</a>
 
             { errors }
 
