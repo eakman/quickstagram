@@ -1,5 +1,6 @@
 import React from 'react';
 import Posts from './posts';
+import FeedHeader from './feed_header';
 
 class Feed extends React.Component {
   constructor(props) {
@@ -20,9 +21,11 @@ class Feed extends React.Component {
   render() {
     return (
       <div>
-        <h1>Feed</h1>
+        <FeedHeader />
         <button onClick={ this.handleLogOut }>Log out</button>
-        <Posts posts={ this.props.posts.posts }/>
+        <section className='content-main group'>
+          <Posts posts={ this.props.posts.posts }/>
+        </section>
       </div>
     );
   }

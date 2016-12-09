@@ -11,11 +11,17 @@ class SessionForm extends React.Component {
       accountStatusText: "Don't have an account yet?",
       accountStatusLinkText: 'Sign up'
     };
-
+    this.hideErrors;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
     this.toggleFormType = this.toggleFormType.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps.errors !== this.props.errors) {
+      this.hideErrors = false;
+    }
   }
 
   guestLogin(e) {
@@ -52,6 +58,8 @@ class SessionForm extends React.Component {
           accountStatusText: 'Have an account?',
           accountStatusLinkText: 'Log in'
         });
+
+
     } else {
       this.setState(
         {
@@ -59,14 +67,18 @@ class SessionForm extends React.Component {
           accountStatusText: "Don't have an account yet?",
           accountStatusLinkText: 'Sign up'
       });
+
     }
   }
 
   render() {
     let errors = '';
-    if (this.props.errors.length !== 0) {
+    if (this.hideErrors === true){
+      errors = '';
 
-      errors = <Errors errors={ this.props.errors } />
+    } else if (this.props.errors.length !== 0) {
+        errors = <Errors errors={ this.props.errors } />
+        this.hideErrors = true;
     }
 
     return (

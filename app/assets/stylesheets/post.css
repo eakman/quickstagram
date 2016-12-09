@@ -1,0 +1,43 @@
+@font-face {
+  font-family: Hi;
+  src: local("../fonts/618250d25a4d.woff"),
+
+
+}
+
+.content-main{
+    display: block;
+    width: 600px;
+    margin: auto;
+}
+
+.post-header, .post-footer {
+  display: block;
+  width: 100%;
+  background-color: white;
+  border-left: 1px solid rgba(0,0,0,.08);
+  border-right: 1px solid rgba(0,0,0,.08);
+
+}
+.post-header {
+  height: 64px;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(48, 57, 66);
+  border-top: 1px solid rgba(0,0,0,.08);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.post-footer {
+  height: 150px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.post img {
+  width: 100%;
+  height: auto;
+}

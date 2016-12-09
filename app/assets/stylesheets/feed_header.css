@@ -1,0 +1,67 @@
+
+.feed-header {
+  display: block;
+  background-color: #fff;
+
+  border-bottom: 1px solid #dbdbdb;
+  margin-bottom: 43px;
+  color: rgb(38, 38, 38);
+
+}
+
+.camera {
+  display: block;
+  height: 32px;
+  width: 32px;
+  margin-right: 18px;
+  background-image: url('../images/photo-camera-3.png');
+}
+
+.narrow-line {
+  display: block;
+  float: left;
+
+  width: 1px;
+  /*padding-top: 20px;*/
+  margin-right: 18px;
+}
+
+.narrow-line div {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: rgb(147, 147, 147);
+  height: 35px;
+  width: 1px;
+}
+
+.feed-header-nav {
+  width: 930px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 26px 40px;
+}
+.feed-header h1 {
+  /*display: block;
+  float: left;
+  height: 77px;*/
+}
+
+.logo {
+  /*display: flex;*/
+  height: 100%;
+  /*flex-direction: column;
+  justify-content: center;*/
+  font-family: Cookie;
+  font-size: 36px;
+}
+
+.logo-icon {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
