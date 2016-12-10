@@ -86,8 +86,9 @@ class SessionForm extends React.Component {
       <div className="initial-container">
         <div className="iContainer group">
 
-        <img className="iPhones" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/home-phones.png/38825c9d5aa2.png" />
-        <img className="screen-shot" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/screenshot2.jpg/2d9d7248af43.jpg" />
+
+        <img className="iPhones" src="https://s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/38825c9d5aa2.png" />
+        <img className="screen-shot" src="https://s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/2d9d7248af43.jpg" />
         </div>
         <section className="log-in-sign-up group">
           <section className="log-in group">
@@ -124,3 +125,5 @@ class SessionForm extends React.Component {
 }
 
 export default SessionForm;
+// <img className="iPhones" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/home-phones.png/38825c9d5aa2.png" />
+// <img className="screen-shot" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/screenshot2.jpg/2d9d7248af43.jpg" />

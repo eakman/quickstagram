@@ -3,7 +3,14 @@ export const allPosts = (user) => {
     method: 'GET',
     url: `/api/users/${user.id}/posts`,
   });
-}
+};
+
+export const likePost = (post_id) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/posts/${post_id}/toggle_like`
+  });
+};
 
 
 // export const getPost = (post) => {

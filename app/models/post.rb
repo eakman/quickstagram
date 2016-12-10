@@ -2,13 +2,16 @@
 #
 # Table name: posts
 #
-#  id          :integer          not null, primary key
-#  picture_url :string           not null
-#  user_id     :integer          not null
-#  description :text
-#  location    :string
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id                       :integer          not null, primary key
+#  user_id                  :integer          not null
+#  description              :text
+#  location                 :string
+#  created_at               :datetime
+#  updated_at               :datetime
+#  picture_url_file_name    :string
+#  picture_url_content_type :string
+#  picture_url_file_size    :integer
+#  picture_url_updated_at   :datetime
 #
 
 class Post < ActiveRecord::Base
@@ -19,4 +22,5 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :picture_url, content_type: /\Aimage\/.*\z/
 
   belongs_to :user
+  has_many :likes
 end

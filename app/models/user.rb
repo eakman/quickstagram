@@ -2,13 +2,16 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  profile_pic_url :string
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id                  :integer          not null, primary key
+#  username            :string           not null
+#  password_digest     :string           not null
+#  session_token       :string           not null
+#  created_at          :datetime
+#  updated_at          :datetime
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -22,6 +25,7 @@ class User < ActiveRecord::Base
     attr_reader :password
 
     has_many :posts
+    has_many :likes
 
     ###
     def ensure_session_token

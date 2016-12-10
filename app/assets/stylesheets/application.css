@@ -206,6 +206,11 @@ a {
   top: 12px;
   background-color: white;
   border: none;
+  cursor: pointer;
+}
+
+.guest:focus {
+  outline:0;
 }
 
 .log-in-form {
@@ -263,4 +268,5 @@ a {
   font-weight: 500;
   line-height: 29px;
   border: 1px solid #3897f0;
+  cursor: pointer;
 }

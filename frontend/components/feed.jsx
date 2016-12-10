@@ -20,13 +20,17 @@ class Feed extends React.Component {
 
   render() {
     return (
+      //jshint ignore: start
       <div>
         <FeedHeader />
         <button onClick={ this.handleLogOut }>Log out</button>
         <section className='content-main group'>
-          <Posts posts={ this.props.posts.posts }/>
+          <Posts posts={ this.props.posts.posts }
+            currentUser={ this.props.currentUser }
+            likeAPost={ this.props.likeAPost }/>
         </section>
       </div>
+      //jshint ignore: end
     );
   }
 }

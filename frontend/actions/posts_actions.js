@@ -1,12 +1,21 @@
-import { allPosts } from '../util/posts_api_util';
+import { allPosts, likePost } from '../util/posts_api_util';
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POSTS_ERRORS = 'RECEIVE_POSTS_ERRORS';
+export const RECEIVE_A_POST = 'RECEIVE_A_POST';
 
 export const getAllPosts = (user) => {
   return (dispatch) => {
     return allPosts(user)
       .then( posts => dispatch(receiveAllPosts(posts)),
+            errors => dispatch(receivePostsErrors(errors.responseJSON)));
+  };
+};
+
+export const likeAPost = (post_id) => {
+  return (dispatch) => {
+    return likePost(post_id)
+      .then( post => dispatch(receiveAPost(post)),
             errors => dispatch(receivePostsErrors(errors.responseJSON)));
   };
 };
@@ -20,6 +29,14 @@ export const receivePostsErrors = (errors) => ({
   type: RECEIVE_POSTS_ERRORS,
   errors
 });
+
+export const receiveAPost = (post) => {
+
+  return{
+    type: RECEIVE_A_POST,
+    post
+  };
+};
 //
 // export const getPost = (post) => {
 //   return (dispatch) => {

@@ -2,6 +2,44 @@
   font-family: Hi;
   src: local("../fonts/618250d25a4d.woff"),
 
+}
+
+
+
+.post-header-av {
+  display: block;
+  float: left;
+  height: 32px;
+  width: 32px;
+  margin-right: 10px;
+  /*border: 1px solid black;*/
+
+  border-radius: 50%;
+}
+
+.post-header-detail {
+  display: block;
+  float: left;
+}
+
+.post-header-uname {
+
+  font-weight: bold;
+  font-size: 13px;
+  color: rgb(38, 38, 38);
+}
+
+.post-header-location {
+
+  font-size: 14px;
+}
+
+.post-header-timestamp {
+  display: block;
+  float: right;
+  font-size: 15px;
+  color: #999;
+  font-weight: 400;
 
 }
 
@@ -11,27 +49,30 @@
     margin: auto;
 }
 
-.post-header, .post-footer {
+.post-footer {
   display: block;
-  width: 100%;
   background-color: white;
   border-left: 1px solid rgba(0,0,0,.08);
   border-right: 1px solid rgba(0,0,0,.08);
 
 }
 .post-header {
-  height: 64px;
+  background-color: white;
+  padding: 14px 20px;
   font-size: 15px;
   font-weight: bold;
   color: rgb(48, 57, 66);
+  border-left: 1px solid rgba(0,0,0,.08);
+  border-right: 1px solid rgba(0,0,0,.08);
   border-top: 1px solid rgba(0,0,0,.08);
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+
 }
 
 .post-footer {
-  height: 150px;
-  margin-bottom: 50px;
+  padding: 20px 24px;
+  margin-bottom: 65px;
   border-bottom: 1px solid rgba(0,0,0,.08);
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -40,4 +81,40 @@
 .post img {
   width: 100%;
   height: auto;
+}
+
+
+
+.likes-count {
+  display: block;
+  font-size: 14px;
+
+  font-weight: 600;
+
+}
+
+.comments-create {
+  display: block;
+  width: 100%;
+  height: 62px;
+  margin-top: 13px;
+  border-top: 1px solid #efefef;
+}
+
+.like-image {
+  display: block;
+  margin-top: 10px;
+  float: left;
+  width: 32px;
+  height: 32px;
+}
+
+ .like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.like-button:focus {
+  outline:0;
 }

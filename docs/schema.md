@@ -47,9 +47,9 @@ updated_at | timestamp | not null
 ## Likes
 
 column name |	data type |	details
----|---|---
-id | integer | not null, primary key
-user_id | integer | not null, foreign key
-post_id | integer | not null, foreign key
-created_at | timestamp | not null
-updated_at | timestamp | not null
+------------|-----------|---------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key
+post_id     | integer   | not null, foreign key
+created_at  | timestamp | not null
+updated_at  | timestamp | not null
