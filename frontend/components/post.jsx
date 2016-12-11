@@ -25,7 +25,7 @@ class Post extends React.Component {
 
   setLikeImages(props){
     const likes = props.postObj.likes;
-    let likeImg = 'https:s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/favorite.png';
+    let likeImg = 'https://s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/favorite.png';
     for ( let i in likes ) {
       if (likes[i].user_id === this.props.currentUser.id) {
         likeImg = 'https://s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/hearts.png';
