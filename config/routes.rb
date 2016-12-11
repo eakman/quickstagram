@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:show, :create] do
       member do
         post :toggle_like
+        post :create_comment
       end
     end
 

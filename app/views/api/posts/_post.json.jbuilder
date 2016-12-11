@@ -8,4 +8,14 @@ json.set! post.id do
     json.username post.user.username
     json.avatar_url asset_path(post.user.avatar.url)
   end
+  json.comments do
+    json.array! post.comments do |comment|
+      json.id comment.id
+      json.body comment.body
+      json.post_id comment.post_id
+      json.user do
+        json.partial! 'api/users/current_user', user: comment.user
+      end
+    end
+  end
 end

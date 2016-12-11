@@ -27,7 +27,8 @@ class Feed extends React.Component {
         <section className='content-main group'>
           <Posts posts={ this.props.posts.posts }
             currentUser={ this.props.currentUser }
-            likeAPost={ this.props.likeAPost }/>
+            likeAPost={ this.props.likeAPost }
+            makeAComment={ this.props.makeAComment }/>
         </section>
       </div>
       //jshint ignore: end

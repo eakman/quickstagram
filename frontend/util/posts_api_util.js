@@ -12,6 +12,13 @@ export const likePost = (post_id) => {
   });
 };
 
+export const createComment = (post_id, comment) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/posts/${post_id}/create_comment`,
+    data: { comment }
+  });
+};
 
 // export const getPost = (post) => {
 //   return $.ajax({

@@ -5,7 +5,7 @@ import Post from './post';
 class Posts extends React.Component {
   constructor(props) {
     super(props);
-
+  
   }
 
   render(){
@@ -23,7 +23,8 @@ class Posts extends React.Component {
         //jshint ignore: start
         <Post key={ i } postObj={ postObj } pic={ pic } post_id={ post_id }
             currentUser={ this.props.currentUser } i={ i }
-            likeAPost={ this.props.likeAPost }/>
+            likeAPost={ this.props.likeAPost }
+            makeAComment={ this.props.makeAComment }/>
         //jshint ignore: end
       );
       i++;

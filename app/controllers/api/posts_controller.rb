@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user).all
+    @posts = Post.includes(:user, :likes, {comments: :user}).order(created_at: :asc)
     render :index
   end
 
@@ -52,6 +52,16 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def create_comment
+    @post = Post.find(params[:id])
+    comment = @post.comments.new(body: comment_params[:body] ,user_id: current_user.id)
+    if comment.save
+      redirect_to api_post_url(@post.id)
+    else
+      render json: comment.errors.full_messages
+    end
+  end
+
   private
   def post_params
     params.require(:post).permit(:picture_url, :location, :description)
@@ -59,5 +69,9 @@ class Api::PostsController < ApplicationController
 
   def like_params
     params.require(:like).permit(:like_id)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body)
   end
 end

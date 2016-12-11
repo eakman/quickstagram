@@ -26,7 +26,8 @@ class User < ActiveRecord::Base
 
     has_many :posts
     has_many :likes
-
+    has_many :comments
+    
     ###
     def ensure_session_token
       self.session_token ||= SecureRandom::urlsafe_base64(16)

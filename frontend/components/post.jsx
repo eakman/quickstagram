@@ -1,14 +1,18 @@
 import React from 'react';
 import createTimeStamp from '../util/create_time_stamp_util';
+import Comments from './comments';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likeImage: ''
+      likeImage: '',
+      commentInputText: ''
     };
     this.handleLike = this.handleLike.bind(this);
     this.setLikeImages = this.setLikeImages.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,9 +35,18 @@ class Post extends React.Component {
   }
 
   handleLike() {
-
-
     return this.props.likeAPost(this.props.post_id);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    return this.props.makeAComment(
+      this.props.post_id, {body: this.state.commentInputText})
+        .then(this.setState({commentInputText: ''}));
+  }
+
+  handleChange(e) {
+    this.setState({commentInputText: e.currentTarget.value});
   }
 
   render() {
@@ -71,11 +84,17 @@ class Post extends React.Component {
 
           <section className='post-footer group'>
             <div className='likes-count'>{ likesCountString }</div>
-            <div className='comments-container'></div>
+            <Comments comments={ this.props.postObj.comments }/>
             <div className='comments-create'>
               <button onClick={ this.handleLike } className='like-button'>
                 <img className='like-image' src={ this.state.likeImage }/>
               </button>
+              <form className='comment-form' onSubmit={this.handleSubmit}>
+                <input type='text'
+                    placeholder='Add a comment...'
+                    value={ this.state.commentInputText }
+                    onChange={ this.handleChange }/>
+              </form>
             </div>
           </section>
         </li>
