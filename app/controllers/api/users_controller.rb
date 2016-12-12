@@ -28,7 +28,14 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    ##change profile pic
+    @user = User.find(params[:id])
+    # @user.avatar = user_params[:avatar]
+
+    if @user.update(avatar: user_params[:avatar])
+      render :user
+    else
+      render json: @user.errors.full_messages
+    end
   end
 
   def toggle_follow
@@ -42,6 +49,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :photo_url)
+    params.require(:user).permit(:username, :password, :avatar)
   end
 end

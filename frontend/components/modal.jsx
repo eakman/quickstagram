@@ -38,8 +38,10 @@ class Modal extends React.Component {
     ReactDOM.render(
       //jshint ignore: start
       <Provider store={ configureStore() }>
-        <div>{this.props.children}
+        <div>
             <button onClick={this.closeModal} className='modal-button'>x</button>
+
+            <div className='modal-children'>{this.props.children}</div>
         </div>
       </Provider>,
       this.modalTarget

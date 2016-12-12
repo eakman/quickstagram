@@ -1,23 +1,23 @@
 .modal {
-  /*display: block;
+  display: block;
   position: fixed;
   top: 0;
   overflow: auto;
   margin: 0;
   width: 100%;
   height: 1000px;
-  background: pink;*/
+  background: pink;
   visibility: hidden;
   background-color: rgba(0,0,0,.5);
 bottom: 0;
--webkit-box-pack: justify;
+/*-webkit-box-pack: justify;
 -ms-flex-pack: justify;
-justify-content: space-around;
+justify-content: space-around;*/
 left: 0;
-overflow-y: auto;
-position: fixed;
+/*overflow-y: auto;
+position: fixed;*/
 right: 0;
-top: 0;
+/*top: 0;*/
 z-index: 1;
 }
 
@@ -35,9 +35,66 @@ z-index: 1;
   /*font-size: 24px;*/
   line-height: 24px;
   padding: 0;
-  margin: 0;
+  margin: 0px;
   font-family: fantasy;
   font-size: 30px;
   font-weight: 600;
   cursor: pointer;
+}
+
+
+.modal-children {
+  display: block;
+  float: right;
+  position: relative;
+  /*margin-top: 300px;*/
+  width: 100%;
+  /*margin: auto;*/
+  margin-top: 180px;
+  /*width: 100%;*/
+}
+
+.form-container h1{
+  display: block;
+  background: #fff;
+  padding: 10px 20px;
+  border: 1px solid rgb(219, 219, 219);
+  display: block;
+  position: relative;
+  width: 343px;
+  margin: auto;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: none;
+
+  /*background: none;
+  color: #fff;
+  border: none;*/
+
+  letter-spacing: 2px;
+}
+
+.upload-form input {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid rgb(219, 219, 219);
+  display: block;
+  position: relative;
+  margin: auto;
+  cursor: pointer;
+}
+
+.form-container button{
+  display: block;
+  background: #fff;
+  padding: 10px 20px;
+  border: 1px solid rgb(219, 219, 219);
+  display: block;
+  position: relative;
+  width: 343px;
+  margin: auto;
+  font-weight: bold;
+  text-align: center;
+  border-top: none;
+  letter-spacing: 2px;
 }

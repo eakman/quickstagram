@@ -3,12 +3,36 @@ import Modal from './modal';
 class Profile extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      imageFile: ''
+    };
+    this.updateFile = this.updateFile.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  componentDidMount() {
+    debugger
   }
 
   editProfilePic(e) {
     e.preventDefault();
     document.getElementsByClassName('modal')[0].style.visibility = "visible";
+  }
+
+  updateFile (e) {
+
+    const file = e.currentTarget.files[0];
+    this.setState({ imageFile: file }, () =>{
+      console.log(this.state);
+    });
+
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const formData = new formData();
+    formData.append('user[avatar]', this.state.imageFile);
+
   }
 
   render() {
@@ -17,8 +41,10 @@ class Profile extends React.Component {
       <article className='profile-container group'>
         <Modal className='profile-modal' >
           <div className='form-container'>
-            <form className='upload-form'>
-              <input type='file' />
+            <h1>SELECT PROFILE PICTURE</h1>
+            <form onSubmit={ this.handleSubmit } className='upload-form'>
+              <input type='file' onChange={this.updateFile} />
+              <button type='submit'>SUBMIT</button>
             </form>
           </div>
         </Modal>
