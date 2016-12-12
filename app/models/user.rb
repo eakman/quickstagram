@@ -27,7 +27,18 @@ class User < ActiveRecord::Base
     has_many :posts
     has_many :likes
     has_many :comments
-    
+
+    has_many :follows,
+      class_name: :Follow,
+      foreign_key: :follower_id,
+      primary_key: :id
+
+    has_many :followers,
+      class_name: :Follow,
+      foreign_key: :followed_id,
+      primary_key: :id
+
+
     ###
     def ensure_session_token
       self.session_token ||= SecureRandom::urlsafe_base64(16)

@@ -1,11 +1,10 @@
 import React from 'react';
 import Posts from './posts';
-import FeedHeader from './feed_header';
+
 
 class Feed extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 
@@ -15,14 +14,13 @@ class Feed extends React.Component {
 
   handleLogOut() {
 
-    this.props.logOut().then(() => this.props.router.push('/'));
+    this.props.logOut().then(() => this.props.router.push('/log_in'));
   }
 
   render() {
     return (
       //jshint ignore: start
       <div>
-        <FeedHeader />
         <button onClick={ this.handleLogOut }>Log out</button>
         <section className='content-main group'>
           <Posts posts={ this.props.posts.posts }

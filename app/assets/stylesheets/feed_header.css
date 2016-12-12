@@ -9,12 +9,27 @@
 
 }
 
+
 .camera {
   display: block;
+  float: left;
   height: 32px;
   width: 32px;
   margin-right: 18px;
-  
+
+}
+
+.home-button {
+  display: block;
+  float: left;
+  width: 218px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.home-button:focus {
+  outline: 0;
 }
 
 .narrow-line {
@@ -44,6 +59,11 @@
   height: 25px;
   padding: 26px 40px;
 }
+
+.header-content {
+  width: 1010px;
+}
+
 .feed-header h1 {
   /*display: block;
   float: left;
@@ -57,6 +77,8 @@
   justify-content: center;*/
   font-family: Cookie;
   font-size: 36px;
+  display: block;
+  float:left;
 }
 
 .logo-icon {
@@ -64,4 +86,25 @@
   height: 100%;
   flex-direction: column;
   justify-content: center;
+
+}
+
+.profile-button {
+  display: block;
+  float: right;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-button:focus{
+  outline: 0;
+}
+
+.profile-icon {
+
+  width: 32px;
+  height: 32px;
+
+
 }

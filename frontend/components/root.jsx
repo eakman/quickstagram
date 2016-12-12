@@ -2,22 +2,24 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from './app';
 import SessionFormContainer from './session_form_container';
+import MainContainer from './main_container';
 import FeedContainer from './feed_container';
-import { Router, Route, IndexRoute, hashHistory} from 'react-router';
+import ProfileContainer from './profile_container';
+import { Router, Route, IndexRoute, hashHistory, IndexRedirect } from 'react-router';
 
 const Root = ({ store }) => {
 
   const redirectIfLoggedIn = (nextState, replace) => {
     // debugger
     if (store.getState().session.currentUser) {
-      replace('/feed');
+      replace('/main/feed');
     }
   };
 
   const redirectIfNotLoggedIn = (nextState, replace) => {
 
     if (!store.getState().session.currentUser) {
-      replace('/');
+      replace('/log_in');
     }
   };
 
@@ -25,11 +27,17 @@ const Root = ({ store }) => {
     //jshint ignore: start
     <Provider store={ store }>
       <Router history={ hashHistory }>
+
         <Route className='app' path='/' component={ App } >
-          <IndexRoute
-            component={ SessionFormContainer } onEnter={ redirectIfLoggedIn }/>
-          <Route path='/feed' component={ FeedContainer } onEnter={ redirectIfNotLoggedIn }/>
+            <IndexRedirect to='main/feed'/>
+            <Route path='/main' component={ MainContainer } onEnter={ redirectIfNotLoggedIn }>
+              <IndexRedirect to='feed'/>
+              <Route path='feed' component={ FeedContainer }/>
+              <Route path='profile' component={ ProfileContainer }/>
+            </Route>
+            <Route path='/log_in' component={ SessionFormContainer } onEnter={ redirectIfLoggedIn } />
         </Route>
+
       </Router>
     </Provider>
     //jshint ignore: end
@@ -38,3 +46,18 @@ const Root = ({ store }) => {
 };
 
 export default Root;
+
+
+
+// <Provider store={ store }>
+//   <Router history={ hashHistory }>
+//     <Route className='app' path='/' component={ App } >
+//       <IndexRoute
+//         component={ SessionFormContainer } onEnter={ redirectIfLoggedIn }/>
+//       <Route path='/main' component={ MainContainer } onEnter={ redirectIfNotLoggedIn }>
+//         <Route path='feed' component={ FeedContainer }/>
+//         <Route path='profile' component={ ProfileContainer }/>
+//       </Route>
+//     </Route>
+//   </Router>
+// </Provider>

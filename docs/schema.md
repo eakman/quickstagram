@@ -14,12 +14,12 @@ updated_at | timestamp | not null
 ## Follows
 
 column name |	data type |	details
----|---|---
-id | integer | not null, primary key
-follower_id | integer | not null, foreign key
-followed_id | integer | not null, foreign key
-created_at | timestamp | not null
-updated_at | timestamp | not null
+------------|-----------|---------
+id          | integer   | not null, primary key
+follower_id | integer   | not null, foreign key
+followed_id | integer   | not null, foreign key
+created_at  | timestamp | not null
+updated_at  | timestamp | not null
 
 ## Posts
 

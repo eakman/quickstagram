@@ -28,16 +28,16 @@ class SessionForm extends React.Component {
     // debugger
     e.preventDefault();
     const guest = {username: 'user2', password: 'password'};
-    return this.props.logIn(guest).then(() => this.props.router.push('/feed'));
+    return this.props.logIn(guest).then(() => this.props.router.push('/main/feed'));
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = {username: this.state.username, password: this.state.password};
     if (this.state.formType === 'Log in'){
-      return this.props.logIn(this.state).then(() => this.props.router.push('/feed'));
+      return this.props.logIn(this.state).then(() => this.props.router.push('/main/feed'));
     } else {
-      return this.props.signUp(this.state).then(() => this.props.router.push('/feed'));
+      return this.props.signUp(this.state).then(() => this.props.router.push('/main/feed'));
     }
   }
 

@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     resources :users, only: [:update, :show, :create, :index] do
+      member do
+        post :toggle_follow
+        get :suggested_follows
+      end
       resources :posts, only: [:index]
+      resources :follows, only: [:index]
     end
 
     resources :posts, only: [:show, :create] do
@@ -15,5 +20,7 @@ Rails.application.routes.draw do
     end
 
     resource :session, only: [:create, :destroy]
+
+
   end
 end

@@ -3,9 +3,9 @@ import { logOut } from '../actions/session_actions';
 import { getAllPosts, likeAPost, makeAComment } from '../actions/posts_actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Feed from './feed';
+import Main from './main';
 
-const mapStateToProps = ({ posts, session }) => {
+const mapStateToProps = ({ posts, session}) => {
   return(
     {
       currentUser: session.currentUser,
@@ -15,6 +15,7 @@ const mapStateToProps = ({ posts, session }) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+
   return(
     {
       logOut: () => dispatch(logOut()),
@@ -23,11 +24,10 @@ const mapDispatchToProps = (dispatch) => {
       makeAComment: (post_id, comment) => dispatch(makeAComment(post_id, comment))
 
     }
-
   );
 };
 
-const FeedContainer = withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(Feed));
+const MainContainer = withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Main));
 
-export default FeedContainer;
+export default MainContainer;

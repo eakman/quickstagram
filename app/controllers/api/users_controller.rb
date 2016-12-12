@@ -29,7 +29,14 @@ class Api::UsersController < ApplicationController
 
   def update
     ##change profile pic
+  end
 
+  def toggle_follow
+    #make current user follow/unfollow a given user
+  end
+
+  def suggested_follows
+    #people who are following the current user where they are not following back
   end
 
   private
