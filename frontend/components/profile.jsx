@@ -20,7 +20,7 @@ class Profile extends React.Component {
 
           <div className='detail-container group'>
             <div className='user-detail'>
-              <h1>eitanakman</h1>
+              <h1>{this.props.currentUser.username}</h1>
             </div>
 
             <ul className='stats'>
@@ -39,4 +39,3 @@ class Profile extends React.Component {
 }
 
 export default Profile;
-// {this.props.currentUser.username}
