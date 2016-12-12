@@ -7,6 +7,10 @@
   top: -44px;
 }
 
+.profile-modal {
+  display: none;
+}
+
 .profile-header {
   display: flex;
   width: 100%;
@@ -34,6 +38,7 @@
   width: 150px;
   height: 150px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .picture-button img {
@@ -71,4 +76,17 @@
 
 .stats li {
   margin-right: 40px;
+}
+
+
+
+.form-container {
+  display: block;
+  width: 100%;
+
+}
+
+.upload-form {
+  display: block;
+  margin:auto;
 }
