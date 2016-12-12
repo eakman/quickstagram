@@ -3,7 +3,8 @@ import React from 'react';
 const Header = (props) => {
 
   const handleProfileButton = () => {
-    props.router.push('/main/profile');
+
+    props.router.push(`/main/profile/${props.currentUser.id}`);
   };
 
   const handleHomeButton = () => {
@@ -16,7 +17,7 @@ const Header = (props) => {
       <nav className='feed-header-nav group'>
         <div className='header-content'>
           <button onClick={ handleHomeButton } className='home-button group'>
-            <img className="camera" src='https://s3.amazonaws.com/quickstagram-prod/static_images/photo-camera.png'/>
+            <img className="camera" src={ window.camera }/>
 
             <div className='logo-icon'/>
             <div className='narrow-line group'><div></div></div>
@@ -24,7 +25,7 @@ const Header = (props) => {
           </button>
           <button onClick={ handleProfileButton } className='profile-button'>
             <img className='profile-icon'
-                src='https://s3.amazonaws.com/quickstagram-prod/static_images/social.png'/>
+                src={ window.profileButton }/>
           </button>
 
         </div>

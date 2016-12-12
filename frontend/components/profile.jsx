@@ -8,10 +8,13 @@ class Profile extends React.Component {
     };
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   componentDidMount() {
-    debugger
+
+    const user_id = this.props.router.params.id;
+    this.props.fetchUser(user_id).then((user) => console.log(this.props));
   }
 
   editProfilePic(e) {
@@ -30,48 +33,58 @@ class Profile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new formData();
+    
+    let formData = new FormData();
     formData.append('user[avatar]', this.state.imageFile);
-
+    this.props.updateProfilePic(this.props.user.id, formData);
+    document.getElementsByClassName('modal')[0].style.visibility = "hidden";
+    e.currentTarget.children[0].value = '';
   }
 
   render() {
-    return(
+    if (this.props.user === null){
       //jshint ignore: start
-      <article className='profile-container group'>
-        <Modal className='profile-modal' >
-          <div className='form-container'>
-            <h1>SELECT PROFILE PICTURE</h1>
-            <form onSubmit={ this.handleSubmit } className='upload-form'>
-              <input type='file' onChange={this.updateFile} />
-              <button type='submit'>SUBMIT</button>
-            </form>
-          </div>
-        </Modal>
-        <header className='profile-header'>
-          <div className='picture-container group'>
-            <button onClick={ this.editProfilePic } className='picture-button'>
-              <img src={ this.props.currentUser.avatar_url } className='picture'/>
-            </button>
-          </div>
-
-          <div className='detail-container group'>
-            <div className='user-detail'>
-              <h1>{this.props.currentUser.username}</h1>
+      return <div></div>;
+      //jshint ignore: end
+    }
+      return(
+        //jshint ignore: start
+        <article className='profile-container group'>
+          <Modal className='profile-modal' >
+            <div className='form-container'>
+              <h1>SELECT PROFILE PICTURE</h1>
+              <form onSubmit={ this.handleSubmit } className='upload-form'>
+                <input type='file' onChange={this.updateFile} />
+                <button type='submit'>SUBMIT</button>
+              </form>
+            </div>
+          </Modal>
+          <header className='profile-header'>
+            <div className='picture-container group'>
+              <button onClick={ this.editProfilePic } className='picture-button'>
+                <img src={ this.props.user.avatar_url } className='picture'/>
+              </button>
             </div>
 
-            <ul className='stats'>
-              <li><span>{this.props.currentUser.post_count}</span> posts</li>
-              <li><span>{this.props.currentUser.follows_count}</span> follows</li>
-              <li><span>{this.props.currentUser.followers_count}</span> followers</li>
-            </ul>
-          </div>
+            <div className='detail-container group'>
+              <div className='user-detail'>
+                <h1>{this.props.user.username}</h1>
+              </div>
 
-        </header>
+              <ul className='stats'>
+                <li><span>{this.props.user.post_count}</span> posts</li>
+                <li><span>{this.props.user.follows_count}</span> follows</li>
+                <li><span>{this.props.user.followers_count}</span> followers</li>
+              </ul>
+            </div>
 
-      </article>
-      //jshint ignore: end
-    );
+          </header>
+
+        </article>
+        //jshint ignore: end
+      );
+
+
   }
 }
 

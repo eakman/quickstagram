@@ -22,7 +22,8 @@ class Main extends React.Component {
     return (
       //jshint ignore: start
       <div>
-        <Header router={ this.props.router } />
+        <Header router={ this.props.router }
+            currentUser={ this.props.currentUser} />
         { this.props.children }
       </div>
       //jshint ignore: end

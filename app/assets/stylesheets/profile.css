@@ -31,9 +31,9 @@
 .picture-button {
   display: block;
   float: left;
-  /*border: none;*/
+  border: none;
   background: none;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -42,8 +42,8 @@
 }
 
 .picture-button img {
-  width: 150px;
-  height: 150px;
+
+
 }
 
 .detail-container {

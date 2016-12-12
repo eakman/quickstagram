@@ -11,9 +11,9 @@ const initialState = {
 const userReducer = (state=initialState, action) => {
   switch(action.type) {
     case RECEIVE_USER:
-      return Object.assign({}, state, { user: action.user});
+      return Object.assign({}, state, {user: action.user});
     case RECEIVE_USER_ERRORS:
-      return Object.assign({}, state, { errors: action.errors});
+      return Object.assign({}, state, {errors: action.errors});
     default:
       return state;
   }

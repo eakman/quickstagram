@@ -8,3 +8,10 @@ export const updateUser = (user_id, formData) => {
     data: formData,
   });
 };
+
+export const getUser = (user_id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${user_id}`
+  });
+};

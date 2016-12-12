@@ -33,7 +33,7 @@ const Root = ({ store }) => {
             <Route path='/main' component={ MainContainer } onEnter={ redirectIfNotLoggedIn }>
               <IndexRedirect to='feed'/>
               <Route path='feed' component={ FeedContainer }/>
-              <Route path='profile' component={ ProfileContainer }/>
+              <Route path='profile/:id' component={ ProfileContainer }/>
             </Route>
             <Route path='/log_in' component={ SessionFormContainer } onEnter={ redirectIfLoggedIn } />
         </Route>
