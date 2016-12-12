@@ -16,7 +16,7 @@ const Header = (props) => {
       <nav className='feed-header-nav group'>
         <div className='header-content'>
           <button onClick={ handleHomeButton } className='home-button group'>
-            <img className="camera" src='https://s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/photo-camera.png'/>
+            <img className="camera" src='https://s3.amazonaws.com/quickstagram-prod/static_images/photo-camera.png'/>
 
             <div className='logo-icon'/>
             <div className='narrow-line group'><div></div></div>
@@ -24,7 +24,7 @@ const Header = (props) => {
           </button>
           <button onClick={ handleProfileButton } className='profile-button'>
             <img className='profile-icon'
-                src='https://s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/social.png'/>
+                src='https://s3.amazonaws.com/quickstagram-prod/static_images/social.png'/>
           </button>
 
         </div>

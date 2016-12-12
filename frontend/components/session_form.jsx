@@ -87,8 +87,8 @@ class SessionForm extends React.Component {
         <div className="iContainer group">
 
 
-        <img className="iPhones" src="https://s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/38825c9d5aa2.png" />
-        <img className="screen-shot" src="https://s3-us-west-2.amazonaws.com/quickstagram-pro/site-images/2d9d7248af43.jpg" />
+        <img className="iPhones" src="https://s3.amazonaws.com/quickstagram-prod/static_images/38825c9d5aa2.png" />
+        <img className="screen-shot" src="https://s3.amazonaws.com/quickstagram-prod/static_images/2d9d7248af43.jpg" />
         </div>
         <section className="log-in-sign-up group">
           <section className="log-in group">
