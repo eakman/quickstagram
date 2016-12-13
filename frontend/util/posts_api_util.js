@@ -27,10 +27,10 @@ export const createComment = (post_id, comment) => {
 //   });
 // }
 //
-// export const createPost = (post) => {
-//   return $.ajax({
-//     method: 'POST',
-//     url: '/api/posts',
-//     data: { post }
-//   });
-// }
+export const createPost = (post) => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/posts',
+    data: { post }
+  });
+};

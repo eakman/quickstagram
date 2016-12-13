@@ -3,13 +3,17 @@ import Modal from './modal';
 class Profile extends React.Component {
   constructor(props){
     super(props);
+    //jshint ignore: start
     this.state = {
       imageFile: ''
     };
+    //jshint ignore: end
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addPost = this.addPost.bind(this);
     this.toggFollow = this.toggFollow.bind(this);
+
+    this.editProfilePic = this.editProfilePic.bind(this);
   }
 
   componentDidMount() {
@@ -18,13 +22,17 @@ class Profile extends React.Component {
     this.props.fetchUser(user_id).then((user) => console.log(this.props));
   }
 
+
+
   editProfilePic(e) {
+
     e.preventDefault();
-    document.getElementsByClassName('modal')[0].style.visibility = "visible";
+    document.getElementsByClassName('modal-1')[0].style.visibility = "visible";
   }
 
-  addPost() {
-
+  addPost(e) {
+    e.preventDefault();
+    document.getElementsByClassName('modal-2')[0].style.visibility = "visible";
   }
 
   toggFollow() {
@@ -46,7 +54,7 @@ class Profile extends React.Component {
     let formData = new FormData();
     formData.append('user[avatar]', this.state.imageFile);
     this.props.updateProfilePic(this.props.user.id, formData);
-    document.getElementsByClassName('modal')[0].style.visibility = "hidden";
+    document.getElementsByClassName('modal-1')[0].style.visibility = "hidden";
     e.currentTarget.children[0].value = '';
   }
 
@@ -73,18 +81,20 @@ class Profile extends React.Component {
             className={fButtonClass}>{fButtonText}</button>;
       }
       //jshint ignore: end
-
       return(
         //jshint ignore: start
         <article className='profile-container group'>
-          <Modal className='profile-modal' >
-            <div className='form-container'>
+          <Modal classId={'modal-1'} className='profile-modal'>
+            <div className='form-container group'>
               <h1>SELECT PROFILE PICTURE</h1>
               <form onSubmit={ this.handleSubmit } className='upload-form'>
                 <input type='file' onChange={this.updateFile} />
                 <button type='submit'>SUBMIT</button>
               </form>
             </div>
+          </Modal>
+          <Modal classId={'modal-2'} className='profile-modal'>
+
           </Modal>
           <header className='profile-header'>
             <div className='picture-container group'>

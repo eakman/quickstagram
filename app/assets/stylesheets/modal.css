@@ -9,16 +9,10 @@
   background: pink;
   visibility: hidden;
   background-color: rgba(0,0,0,.5);
-bottom: 0;
-/*-webkit-box-pack: justify;
--ms-flex-pack: justify;
-justify-content: space-around;*/
-left: 0;
-/*overflow-y: auto;
-position: fixed;*/
-right: 0;
-/*top: 0;*/
-z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 .modal-button {
@@ -28,11 +22,9 @@ z-index: 1;
   position: relative;
   top: 30px;
   right: 50px;
-
   color: #fff;
   background: none;
   border: none;
-  /*font-size: 24px;*/
   line-height: 24px;
   padding: 0;
   margin: 0px;
@@ -42,16 +34,16 @@ z-index: 1;
   cursor: pointer;
 }
 
-
 .modal-children {
   display: block;
   float: right;
   position: relative;
-  /*margin-top: 300px;*/
   width: 100%;
-  /*margin: auto;*/
   margin-top: 180px;
-  /*width: 100%;*/
+}
+
+.form-container {
+  /*display: none !important;*/
 }
 
 .form-container h1{
@@ -66,11 +58,6 @@ z-index: 1;
   font-weight: bold;
   text-align: center;
   border-bottom: none;
-
-  /*background: none;
-  color: #fff;
-  border: none;*/
-
   letter-spacing: 2px;
 }
 

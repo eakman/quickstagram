@@ -13,15 +13,10 @@ class Modal extends React.Component {
   componentDidMount() {
 
     this.modalTarget = document.createElement('div');
-    this.modalTarget.className = 'modal';
+    this.modalTarget.className = `${this.props.classId} modal`;
     document.body.appendChild(this.modalTarget);
     this._render();
   }
-
-  // componentWillMount() {
-  //   debugger
-  //   this._render();
-  // }
 
   componentWillUnmount() {
 
@@ -30,7 +25,7 @@ class Modal extends React.Component {
   }
 
   closeModal(){
-    document.getElementsByClassName('modal')[0].style.visibility = "hidden";
+    document.getElementsByClassName(this.props.classId)[0].style.visibility = "hidden";
   }
 
   _render() {
