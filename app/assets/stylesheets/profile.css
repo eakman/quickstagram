@@ -123,6 +123,7 @@ text-align: inherit;
   white-space: nowrap;
   width: 100%;
   -webkit-appearance: none;
+  cursor: pointer;
 }
 
 .add-button {

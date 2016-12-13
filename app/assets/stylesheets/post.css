@@ -140,3 +140,13 @@
 .comment-form input:focus {
   outline: 0;
 }
+
+.username-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.username:focus {
+  outline: 0;
+}
