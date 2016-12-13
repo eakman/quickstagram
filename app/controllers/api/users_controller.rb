@@ -24,6 +24,16 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def get_user_posts
+    @user = User.find(params[:id])
+    if @user
+      @posts = @user.posts
+      render 'api/posts/index'
+    else
+      render json: ['no posts']
+    end
+  end
+
   def is_following?(user, other_user)
     user.followers.select('follower_id').map {|f| p f.follower_id}.include?(other_user)
   end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:update, :show, :create, :index] do
       member do
         post :toggle_follow
-        get :suggested_follows
+        get :get_user_posts
       end
       resources :posts, only: [:index]
       resources :follows, only: [:index]
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       member do
         post :toggle_like
         post :create_comment
+
       end
     end
 

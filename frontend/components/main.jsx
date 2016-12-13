@@ -9,10 +9,6 @@ class Main extends React.Component {
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 
-  componentDidMount() {
-    this.props.getAllPosts(this.props.currentUser);
-  }
-
   handleLogOut() {
 
     this.props.logOut().then(() => this.props.router.push('/'));

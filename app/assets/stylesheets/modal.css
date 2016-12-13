@@ -71,6 +71,11 @@
   cursor: pointer;
 }
 
+#create-text-input {
+  width: 343px;
+  border-top: none;
+}
+
 .form-container button{
   display: block;
   background: #fff;

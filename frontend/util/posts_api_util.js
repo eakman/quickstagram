@@ -20,6 +20,13 @@ export const createComment = (post_id, comment) => {
   });
 };
 
+export const userPosts = (user_id) => {
+  return $.ajax({
+      method: 'GET',
+      url: `/api/users/${user_id}/get_user_posts`
+  });
+};
+
 // export const getPost = (post) => {
 //   return $.ajax({
 //     method: 'GET',
@@ -27,10 +34,13 @@ export const createComment = (post_id, comment) => {
 //   });
 // }
 //
-export const createPost = (post) => {
+export const createPost = (formData) => {
   return $.ajax({
     method: 'POST',
     url: '/api/posts',
-    data: { post }
+    dataType: "json",
+    contentType: false,
+    processData: false,
+    data: formData,
   });
 };

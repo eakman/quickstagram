@@ -5,7 +5,7 @@ import {
 } from '../actions/posts_actions';
 
 const initialState = {
-  posts: [],
+  posts: {},
   errors: []
 };
 

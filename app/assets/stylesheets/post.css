@@ -4,16 +4,12 @@
 
 }
 
-
-
 .post-header-av {
   display: block;
   float: left;
   height: 32px;
   width: 32px;
   margin-right: 10px;
-  /*border: 1px solid black;*/
-
   border-radius: 50%;
 }
 
@@ -23,14 +19,12 @@
 }
 
 .post-header-uname {
-
   font-weight: bold;
   font-size: 13px;
   color: rgb(38, 38, 38);
 }
 
 .post-header-location {
-
   font-size: 14px;
 }
 
@@ -44,9 +38,9 @@
 }
 
 .content-main{
-    display: block;
-    width: 600px;
-    margin: auto;
+  display: block;
+  width: 600px;
+  margin: auto;
 }
 
 .post-footer {
@@ -88,9 +82,7 @@
 .likes-count {
   display: block;
   font-size: 14px;
-
   font-weight: 600;
-
 }
 
 .comments-create {
@@ -104,7 +96,6 @@
 
 .like-image {
   display: block;
-
   float: left;
   width: 24px;
   height: 24px;

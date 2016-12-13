@@ -1,5 +1,9 @@
 import React from 'react';
 import Modal from './modal';
+import ProfilePosts from './profile_posts/profile_posts';
+import CreatePostForm from './profile_posts/create_post_form';
+import { withRouter } from 'react-router';
+
 class Profile extends React.Component {
   constructor(props){
     super(props);
@@ -12,20 +16,16 @@ class Profile extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addPost = this.addPost.bind(this);
     this.toggFollow = this.toggFollow.bind(this);
-
     this.editProfilePic = this.editProfilePic.bind(this);
   }
 
   componentDidMount() {
-
     const user_id = this.props.router.params.id;
     this.props.fetchUser(user_id).then((user) => console.log(this.props));
+    this.props.getUserPosts(user_id);
   }
 
-
-
   editProfilePic(e) {
-
     e.preventDefault();
     document.getElementsByClassName('modal-1')[0].style.visibility = "visible";
   }
@@ -40,7 +40,6 @@ class Profile extends React.Component {
   }
 
   updateFile (e) {
-
     const file = e.currentTarget.files[0];
     this.setState({ imageFile: file }, () =>{
       console.log(this.state);
@@ -50,7 +49,6 @@ class Profile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     let formData = new FormData();
     formData.append('user[avatar]', this.state.imageFile);
     this.props.updateProfilePic(this.props.user.id, formData);
@@ -67,10 +65,8 @@ class Profile extends React.Component {
       //jshint ignore: start
       let ActionButton;
       if (this.props.user.id === this.props.currentUser.id){
-
         ActionButton = <button onClick={ this.addPost }
             className='follow-button add-button'>Add post</button>;
-
       } else {
         let fButtonText = 'Follow';
         if (this.props.user.followed){
@@ -94,7 +90,7 @@ class Profile extends React.Component {
             </div>
           </Modal>
           <Modal classId={'modal-2'} className='profile-modal'>
-
+            <CreatePostForm makeAPost={ this.props.makeAPost } />
           </Modal>
           <header className='profile-header'>
             <div className='picture-container group'>
@@ -102,32 +98,25 @@ class Profile extends React.Component {
                 <img src={ this.props.user.avatar_url } className='picture'/>
               </button>
             </div>
-
             <div className='detail-container group'>
               <div className='user-detail'>
                 <h1>{this.props.user.username}</h1>
                 <div className="follow-button-container">
-
                   {ActionButton}
                 </div>
-
               </div>
-
               <ul className='stats'>
                 <li><span>{this.props.user.post_count}</span> posts</li>
                 <li><span>{this.props.user.follows_count}</span> follows</li>
                 <li><span>{this.props.user.followers_count}</span> followers</li>
               </ul>
             </div>
-
-          </header>
-
+            </header>
+          <ProfilePosts posts={ this.props.posts.posts } />
         </article>
         //jshint ignore: end
       );
-
-
-  }
+    }
 }
 
 export default Profile;

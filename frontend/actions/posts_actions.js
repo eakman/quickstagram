@@ -1,4 +1,4 @@
-import { createPost, allPosts, likePost, createComment } from '../util/posts_api_util';
+import { userPosts, createPost, allPosts, likePost, createComment } from '../util/posts_api_util';
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POSTS_ERRORS = 'RECEIVE_POSTS_ERRORS';
@@ -28,13 +28,22 @@ export const makeAComment = (post_id, comment) => {
   };
 };
 
-export const makeAPost = (post) => {
+export const makeAPost = (formData) => {
   return (dispatch) => {
-    return createPost(post)
+    return createPost(formData)
       .then( newPost => dispatch(receiveAPost(newPost)),
-            errors = dispatch(receivePostsErrors));
+            errors => dispatch(receivePostsErrors));
   };
 };
+
+export const getUserPosts = (user_id) => {
+  return (dispatch) => {
+    return userPosts(user_id)
+      .then( posts => dispatch(receiveAllPosts(posts)),
+            errors => dispatch(receivePostsErrors(errors.responseJSON)));
+  };
+};
+
 
 export const receiveAllPosts = (posts) => ({
   type: RECEIVE_ALL_POSTS,
