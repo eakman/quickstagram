@@ -8,7 +8,8 @@ class Profile extends React.Component {
     };
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.addPost = this.addPost.bind(this);
+    this.toggFollow = this.toggFollow.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +23,14 @@ class Profile extends React.Component {
     document.getElementsByClassName('modal')[0].style.visibility = "visible";
   }
 
+  addPost() {
+
+  }
+
+  toggFollow() {
+    this.props.toggleFollow(this.props.user.id);
+  }
+
   updateFile (e) {
 
     const file = e.currentTarget.files[0];
@@ -33,7 +42,7 @@ class Profile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
     let formData = new FormData();
     formData.append('user[avatar]', this.state.imageFile);
     this.props.updateProfilePic(this.props.user.id, formData);
@@ -47,6 +56,24 @@ class Profile extends React.Component {
       return <div></div>;
       //jshint ignore: end
     }
+      //jshint ignore: start
+      let ActionButton;
+      if (this.props.user.id === this.props.currentUser.id){
+
+        ActionButton = <button onClick={ this.addPost }
+            className='follow-button add-button'>Add post</button>;
+
+      } else {
+        let fButtonText = 'Follow';
+        if (this.props.user.followed){
+          fButtonText = 'Following';
+        }
+        let fButtonClass = `follow-button ${fButtonText}`;
+        ActionButton = <button onClick={ this.toggFollow }
+            className={fButtonClass}>{fButtonText}</button>;
+      }
+      //jshint ignore: end
+
       return(
         //jshint ignore: start
         <article className='profile-container group'>
@@ -69,6 +96,11 @@ class Profile extends React.Component {
             <div className='detail-container group'>
               <div className='user-detail'>
                 <h1>{this.props.user.username}</h1>
+                <div className="follow-button-container">
+
+                  {ActionButton}
+                </div>
+
               </div>
 
               <ul className='stats'>

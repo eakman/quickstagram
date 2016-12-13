@@ -16,10 +16,16 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user
-      render :user
+        # debugger
+        @is_following = is_following?(@user, current_user.id)
+        render :user
     else
       render json: ['something went wrong']
     end
+  end
+
+  def is_following?(user, other_user)
+    user.followers.select('follower_id').map {|f| p f.follower_id}.include?(other_user)
   end
 
   def index
@@ -38,8 +44,33 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def get_follow_id(user)
+    id = current_user.id
+    follow = user.followers.where("follower_id = #{id}")[0]
+    if follow
+      return follow.id
+    else
+      return false
+    end
+  end
+
   def toggle_follow
-    #make current user follow/unfollow a given user
+    @user = User.find(params[:id])
+    follow_id = get_follow_id(@user)
+    if follow_id
+      @follow = Follow.find(follow_id)
+      @follow.destroy
+      @is_following = false
+      render :user
+    else
+      @follow = Follow.new(follower_id: current_user.id, followed_id: @user.id)
+      if @follow.save
+        @is_following = true
+        render :user
+      else
+        render json: ['unsuccessful follow']
+      end
+    end
   end
 
   def suggested_follows
@@ -51,4 +82,6 @@ class Api::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :avatar)
   end
+
+
 end

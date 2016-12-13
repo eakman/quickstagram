@@ -1,4 +1,4 @@
-import { updateUser, getUser } from '../util/user_api_util';
+import { updateUser, getUser, toggleFollow } from '../util/user_api_util';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
 
@@ -18,6 +18,13 @@ export const fetchUser = (user_id) => {
   };
 };
 
+export const toggFollow = (user_id) => {
+  return (dispatch) => {
+    return toggleFollow(user_id)
+    .then( user => dispatch(receiveUser(user)),
+          errors => dispatch(receiveUserErrors(errors.responseJSON)));
+  };
+};
 
 export const receiveUser = (user) => ({
   type: RECEIVE_USER,

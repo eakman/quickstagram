@@ -5,7 +5,7 @@ import Post from './post';
 class Posts extends React.Component {
   constructor(props) {
     super(props);
-  
+
   }
 
   render(){

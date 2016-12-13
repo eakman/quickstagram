@@ -15,3 +15,10 @@ export const getUser = (user_id) => {
     url: `/api/users/${user_id}`
   });
 };
+
+export const toggleFollow = (user_id) => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/users/${user_id}/toggle_follow`
+  });
+};
