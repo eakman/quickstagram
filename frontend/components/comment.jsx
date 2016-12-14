@@ -14,6 +14,7 @@ class Comment extends React.Component {
   render() {
     const { comment } = this.props;
     const userUrl = `/main/profile/${comment.user.id}`;
+
     return (
       //jshint ignore: start
       <div className='comment-body' key={'cmnt-body-' + comment.id}>

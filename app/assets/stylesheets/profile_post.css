@@ -1,7 +1,30 @@
-.profile-post {
+
+
+.post-list-item{
   display: block;
   float: left;
   height: 293px;
   width: 293px;
   margin: 15px;
+}
+.profile-post {
+  /*-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;*/
+  width: 100%;
+  height: 100%;
+  /*display: block;
+  float: left;
+  height: 293px;
+  width: 293px;
+  margin: 15px;*/
+}
+
+
+.post-list-item:hover {
+  background: #3498db;
+  /*background-color: rgba(0,0,0,.5);*/
+}
+.profile-post:hover{
+
+	opacity: .5;
 }

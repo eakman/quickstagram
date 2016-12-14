@@ -1,6 +1,7 @@
 import React from 'react';
 import createTimeStamp from '../util/create_time_stamp_util';
 import Comments from './comments';
+import Comment from './comment';
 
 class Post extends React.Component {
   constructor(props) {
@@ -55,7 +56,10 @@ class Post extends React.Component {
     if (likesCount === 1){
       likesCountString = `${ likesCount } like`;
     }
-
+    const description = {
+                          user: {username: this.props.postObj.user.username},
+                          body: this.props.postObj.description,
+                          id: -1};
     return(
     //jshint ignore: start
         <li key={"post" + this.props.i} >
@@ -84,6 +88,7 @@ class Post extends React.Component {
 
           <section className='post-footer group'>
             <div className='likes-count'>{ likesCountString }</div>
+            <Comment comment={ description } />
             <Comments comments={ this.props.postObj.comments }/>
             <div className='comments-create'>
               <button onClick={ this.handleLike } className='like-button'>

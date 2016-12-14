@@ -27,10 +27,14 @@ class Profile extends React.Component {
 
   editProfilePic(e) {
     e.preventDefault();
-    document.getElementsByClassName('modal-1')[0].style.visibility = "visible";
+    if (this.props.user.id === this.props.currentUser.id){
+
+      document.getElementsByClassName('modal-1')[0].style.visibility = "visible";
+    }
   }
 
   addPost(e) {
+
     e.preventDefault();
     document.getElementsByClassName('modal-2')[0].style.visibility = "visible";
   }
@@ -84,7 +88,7 @@ class Profile extends React.Component {
             <div className='form-container group'>
               <h1>SELECT PROFILE PICTURE</h1>
               <form onSubmit={ this.handleSubmit } className='upload-form'>
-                <input type='file' onChange={this.updateFile} />
+                <input type='file' onChange={ this.updateFile } />
                 <button type='submit'>SUBMIT</button>
               </form>
             </div>

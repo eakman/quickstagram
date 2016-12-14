@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfilePost from './profile_post';
-
+import Modal from '../modal';
 class ProfilePosts extends React.Component {
   constructor(props) {
     super(props);
@@ -17,9 +17,12 @@ class ProfilePosts extends React.Component {
           i++;
         }
         return(
-          <ul>
-            {posts}
-          </ul>
+          <div>
+          
+            <ul>
+              {posts}
+            </ul>
+          </div>
         );
 
   }
