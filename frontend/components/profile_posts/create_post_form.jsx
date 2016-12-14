@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class CreatePostForm extends React.Component {
   constructor(props){
     super(props);
@@ -33,7 +34,8 @@ class CreatePostForm extends React.Component {
     formData.append('post[location]', this.state.location);
     formData.append('post[description]', this.state.description);
     this.props.makeAPost(formData);
-    document.getElementsByClassName('modal-2')[0].style.visibility = "hidden";
+    // document.getElementsByClassName('modal-2')[0].style.visibility = "hidden";
+    this.props.closeModal();
     e.currentTarget.children[0].value = '';
   }
 

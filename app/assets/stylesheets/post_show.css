@@ -1,0 +1,69 @@
+.post-show-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 935px !important;
+  height: 600px !important;
+  margin: auto !important;
+  position: relative;
+  margin-top: 45px !important;
+
+}
+
+#post-show-comments {
+
+  overflow: auto !important;
+}
+
+
+#post-show-image {
+  display: block;
+  float: left;
+  width: 600px !important;
+  height: 600px !important;
+}
+
+#post-side-bar {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  float: left;
+  padding: 20px;
+  height: 600px !important;
+  width: 335px !important;
+  float: left !important;
+
+  z-index: 100;
+  position: relative;
+}
+
+.post-show-like-count {
+  margin-top: 20px;
+}
+
+.post-show-like-image {
+  margin-top: 20px;
+}
+
+
+.post-show-create-comment {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.post-show-comment-input{
+  margin-left: 20px;
+  width: 240px;
+  border: none;
+
+}
+
+.post-show-comment-input:focus {
+  outline: none;
+}
+
+/*.like-button-comment-text {
+  display: flex;
+  flex-direction: row;
+}*/

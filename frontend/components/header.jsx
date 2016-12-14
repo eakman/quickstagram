@@ -12,7 +12,6 @@ const Header = (props) => {
   };
 
   return(
-    //jshint ignore:start
     <header className='feed-header group'>
       <nav className='feed-header-nav group'>
         <div className='header-content'>
@@ -31,7 +30,6 @@ const Header = (props) => {
         </div>
       </nav>
     </header>
-    //jshint ignore:end
   );
 };
 

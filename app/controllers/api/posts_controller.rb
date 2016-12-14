@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user, :likes, {comments: :user}).all.order("created_at ASC")
+    @posts = Post.includes(:user, :likes, {comments: :user}).all.order(created_at: :DESC)
     render :index
   end
 

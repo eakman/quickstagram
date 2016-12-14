@@ -1,15 +1,20 @@
 import React from 'react';
-import Modal from './modal';
+// import Modal from './modal';
+import Modal from 'react-modal';
 import ProfilePosts from './profile_posts/profile_posts';
 import CreatePostForm from './profile_posts/create_post_form';
 import { withRouter } from 'react-router';
+import Style from './modal_style';
+import ProfilePicForm from './profile_forms/profile_pic_form';
+
 
 class Profile extends React.Component {
   constructor(props){
     super(props);
     //jshint ignore: start
     this.state = {
-      imageFile: ''
+      imageFile: '',
+      modalOpen: false
     };
     //jshint ignore: end
     this.updateFile = this.updateFile.bind(this);
@@ -17,6 +22,17 @@ class Profile extends React.Component {
     this.addPost = this.addPost.bind(this);
     this.toggFollow = this.toggFollow.bind(this);
     this.editProfilePic = this.editProfilePic.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.form;
+  }
+
+  closeModal(){
+    this.setState({ modalOpen: false });
+  }
+
+  openModal(){
+    this.setState({ modalOpen: true });
   }
 
   componentDidMount() {
@@ -26,17 +42,21 @@ class Profile extends React.Component {
   }
 
   editProfilePic(e) {
+    this.form = <ProfilePicForm handleSubmit={this.handleSubmit} updateFile={this.updateFile} />
     e.preventDefault();
     if (this.props.user.id === this.props.currentUser.id){
 
-      document.getElementsByClassName('modal-1')[0].style.visibility = "visible";
+      this.openModal();
     }
   }
 
   addPost(e) {
 
     e.preventDefault();
-    document.getElementsByClassName('modal-2')[0].style.visibility = "visible";
+    this.form = <CreatePostForm makeAPost={ this.props.makeAPost }
+                    closeModal={ this.closeModal }/>
+    this.openModal();
+    // document.getElementsByClassName('modal-2')[0].style.visibility = "visible";
   }
 
   toggFollow() {
@@ -56,7 +76,8 @@ class Profile extends React.Component {
     let formData = new FormData();
     formData.append('user[avatar]', this.state.imageFile);
     this.props.updateProfilePic(this.props.user.id, formData);
-    document.getElementsByClassName('modal-1')[0].style.visibility = "hidden";
+    this.closeModal();
+    // document.getElementsByClassName('modal-1')[0].style.visibility = "hidden";
     e.currentTarget.children[0].value = '';
   }
 
@@ -80,25 +101,22 @@ class Profile extends React.Component {
         ActionButton = <button onClick={ this.toggFollow }
             className={fButtonClass}>{fButtonText}</button>;
       }
+
       //jshint ignore: end
       return(
         //jshint ignore: start
         <article className='profile-container group'>
-          <Modal classId={'modal-1'} className='profile-modal'>
-            <div className='form-container group'>
-              <h1>SELECT PROFILE PICTURE</h1>
-              <form onSubmit={ this.handleSubmit } className='upload-form'>
-                <input type='file' onChange={ this.updateFile } />
-                <button type='submit'>SUBMIT</button>
-              </form>
-            </div>
+          <Modal  style={Style} isOpen={this.state.modalOpen} contentLabel={'hello'} >
+            <button onClick={this.closeModal} className='modal-button'>x</button>
+            {this.form}
           </Modal>
-          <Modal classId={'modal-2'} className='profile-modal'>
-            <CreatePostForm makeAPost={ this.props.makeAPost } />
-          </Modal>
+
+
+
+
           <header className='profile-header'>
             <div className='picture-container group'>
-              <button onClick={ this.editProfilePic } className='picture-button'>
+              <button onClick={this.editProfilePic} className='picture-button'>
                 <img src={ this.props.user.avatar_url } className='picture'/>
               </button>
             </div>
@@ -124,3 +142,21 @@ class Profile extends React.Component {
 }
 
 export default Profile;
+
+
+// onClick={ this.editProfilePic }
+
+// classId={'modal-1'} className='profile-modal'
+
+// <Modal classId={'modal-2'} className='profile-modal'>
+//   <CreatePostForm makeAPost={ this.props.makeAPost } />
+// </Modal>
+
+
+// <div className='form-container group'>
+//   <h1>SELECT PROFILE PICTURE</h1>
+//   <form onSubmit={ this.handleSubmit } className='upload-form'>
+//     <input type='file' onChange={ this.updateFile } />
+//     <button type='submit'>SUBMIT</button>
+//   </form>
+// </div>

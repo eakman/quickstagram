@@ -6,11 +6,14 @@ import Comment from './comment';
 class Post extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       likeImage: '',
       commentInputText: ''
     };
+
     this.handleLike = this.handleLike.bind(this);
+
     this.setLikeImages = this.setLikeImages.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -51,6 +54,7 @@ class Post extends React.Component {
   }
 
   render() {
+
     const likesCount = this.props.postObj.likes.length;
     let likesCountString = `${ likesCount } likes`;
     if (likesCount === 1){
@@ -85,7 +89,7 @@ class Post extends React.Component {
           <div className='post'>
             <img src={ this.props.pic }/>
           </div>
-
+          
           <section className='post-footer group'>
             <div className='likes-count'>{ likesCountString }</div>
             <Comment comment={ description } />

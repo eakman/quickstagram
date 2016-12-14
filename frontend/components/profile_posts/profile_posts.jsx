@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfilePost from './profile_post';
+import ProfilePostContainer from './profile_post_container';
 import Modal from '../modal';
 class ProfilePosts extends React.Component {
   constructor(props) {
@@ -13,12 +13,12 @@ class ProfilePosts extends React.Component {
         const posts = [];
         let i = 0;
         for (let postObj in this.props.posts) {
-          posts.push(<ProfilePost key={i} post={ this.props.posts[postObj] } />);
+          posts.push(<ProfilePostContainer key={i} post={ this.props.posts[postObj] } id={i} postId={ postObj } />);
           i++;
         }
         return(
           <div>
-          
+
             <ul>
               {posts}
             </ul>
