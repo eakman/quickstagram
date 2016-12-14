@@ -12,8 +12,8 @@
 }
 
 #post-show-comments {
-
   overflow: auto !important;
+  height: 495px;
 }
 
 
