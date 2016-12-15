@@ -42,13 +42,14 @@ class CreatePostForm extends React.Component {
   render(){
     return(
       <div className='form-container group'>
-        <h1>SELECT POST PICTURE</h1>
         <form onSubmit={ this.handleSubmit } className='upload-form'>
-          <input name='image' type='file' onChange={this.updateFile} />
+          <label for='file'>Upload picture
+            <input id='file' name='image' type='file' onChange={this.updateFile} />
+            </label>
           <input name='description' id='create-text-input' type='text' placeholder='description' onChange={this.updateFile} />
           <input name='location' id='create-text-input' type='text' placeholder='location' onChange={this.updateFile} />
 
-          <button type='submit'>SUBMIT</button>
+          <button type='submit'>Submit</button>
         </form>
       </div>
     );

@@ -41,15 +41,8 @@
   cursor: pointer;
 }
 
-.picture-button img {
-
-
-}
-
 .detail-container {
   width: 613.33px;
-
-
 }
 
 .user-detail {
@@ -66,7 +59,6 @@ justify-content: initial;
   line-height: 40px;
   letter-spacing: 3px;
   display: block;
-
 }
 
 
@@ -85,8 +77,6 @@ justify-content: initial;
   margin-right: 40px;
 }
 
-
-
 .form-container {
   display: block;
   width: 100%;
@@ -95,11 +85,10 @@ justify-content: initial;
 
 .follow-button-container {
   display: flex;
-flex-direction: column;
-/* text-align: center; */
-justify-content: flex-end;
-position: inherit;
-text-align: inherit;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: inherit;
+  text-align: inherit;
 }
 
 .follow-button{
@@ -110,9 +99,6 @@ text-align: inherit;
   padding: 0 11px;
   height: 29px;
   margin-left: 20px;
-
-
-
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
@@ -128,34 +114,14 @@ text-align: inherit;
 
 .add-button {
   background: 0 0;
-  border-color: black;
-  color: black;
+  /*border-color: black;
+  color: black;*/
+  background: 0 0;
+  /*background: #3897f0;
+  color: #fff;*/
+  border-color: #3897f0;
+  color: #3897f0;
 }
-
-/*.following-button {
-  display: block;
-  align-items: baseline;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 0 11px;
-  height: 29px;
-  margin-left: 20px;
-
-  content: 'Following';
-
-
-
-  border-radius: 3px;
-  border-style: solid;
-  border-width: 1px;
-  font-weight: 600;
-  outline: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  -webkit-appearance: none;
-}*/
 
 .Follow {
   background: 0 0;
