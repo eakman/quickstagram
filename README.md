@@ -22,4 +22,4 @@ Users have a username and avatar as well as a password digest and session token 
 
 for more info see my schema:
 
-### [The schema](schema.md)
+### [The schema](./docs/schema.md)
