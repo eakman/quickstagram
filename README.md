@@ -22,4 +22,16 @@ Users have a username and avatar as well as a password digest and session token 
 
 for more info see my schema:
 
-### [The schema](./docs/schema.md)
+#### [The schema](./docs/schema.md)
+
+### Key Features
+
+#### User authentication and session management
+
+When a user signs up, the password that's sent in the initial request is hashed using BCrypt --a cryptographic hashing algorithm based on Blowfish, which is highly unlikely to produce hash collisions. At that point, a randomly generated session token is assigned to the user and stored in their browser's cookies. The session token is sent with every API request thereon for authentication purposes and the password is not used until the session token has expired.
+
+#### The Feed
+
+The feed is a scrollable exploring feature where users can view, comment, and like their followed posts.
+
+![alt text](./docs/feedSS.png)
