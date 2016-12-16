@@ -34,4 +34,29 @@ When a user signs up, the password that's sent in the initial request is hashed 
 
 The feed is a scrollable exploring feature where users can view, comment, and like their followed posts.
 
-![alt text](./docs/feedSS.png)
+![Feed](./docs/feedSS.png)
+
+#### The Nav Bar
+
+The nav bar allows you to navigate between the feed and the user profile as well as provides and interface for live user search.
+
+![Nav Bar](./docs/nav_barSS.png)
+
+#### Profile Page
+
+With the profile page a user can curate their personal photos. User's can also view other user's pages, follow them, and view their photos.
+
+![Profile Page](./docs/profileSS.png)
+
+#### Post Show page
+
+is accessed through the user profile page and allows user to view comment and like specific photos.
+
+![Profile Page](./docs/post_showSS.png)
+
+
+### Future Goals
+
+* Incorporate infinite scroll on the feed page
+* Picture capture
+* searchable hash tags
