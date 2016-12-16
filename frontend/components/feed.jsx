@@ -18,6 +18,7 @@ class Feed extends React.Component {
   }
 
   render() {
+    document.getElementById('title-el').innerHTML = 'Quickstagram';
     return (
       //jshint ignore: start
       <div>

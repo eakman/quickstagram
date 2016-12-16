@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchContainer from './search/search_container';
+// import Link from 'react-router';
 
 const Header = (props) => {
 

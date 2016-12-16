@@ -34,6 +34,7 @@ class Profile extends React.Component {
   }
 
   closeModal(){
+
     this.setState({ modalOpen: false });
   }
 
@@ -45,6 +46,15 @@ class Profile extends React.Component {
     const user_id = this.props.router.params.id;
     this.props.fetchUser(user_id).then((user) => console.log(this.props));
     this.props.getUserPosts(user_id);
+
+  }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    if (nextProps.params.id !== this.props.params.id){
+        const user_id = this.props.router.params.id;
+        this.props.fetchUser(user_id).then((user) => console.log(this.props));
+        this.props.getUserPosts(user_id);
+      }
   }
 
   editProfilePic(e) {
@@ -121,11 +131,13 @@ class Profile extends React.Component {
             className={fButtonClass}>{fButtonText}</button>;
       }
 
+      document.getElementById('title-el').innerHTML = `${this.props.user.username}`;
+
       //jshint ignore: end
       return(
         //jshint ignore: start
         <article className='profile-container group'>
-          <Modal  style={Style} isOpen={this.state.modalOpen} contentLabel={'hello'} >
+          <Modal style={Style} isOpen={this.state.modalOpen} contentLabel={'hello'} >
             <button onClick={this.closeModal} className='modal-button'>x</button>
             {this.form}
           </Modal>
