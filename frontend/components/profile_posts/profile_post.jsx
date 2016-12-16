@@ -33,7 +33,7 @@ class ProfilePost extends React.Component {
   }
 
   render () {
-    // debugger
+  
     const likesCount = this.props.post.likes.length;
     let likesCountString = `${ likesCount } likes`;
     if (likesCount === 1){

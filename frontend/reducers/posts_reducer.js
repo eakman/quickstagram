@@ -17,8 +17,20 @@ const postsReducer = (state=initialState, action) => {
     case RECEIVE_POSTS_ERRORS:
       return Object.assign({}, initialState, { errors: action.errors });
     case RECEIVE_A_POST:
-      const newPosts = Object.assign({}, state.posts, action.post);
-      return Object.assign({}, initialState, {posts: newPosts});
+      const postsDup = state.posts.slice(0);
+      let replaced = false;
+      for (let i = 0; i < postsDup.length; i ++){
+        if (postsDup[i].id === action.post.id){
+          postsDup.splice(i,1,action.post);
+          replaced = true;
+          break;
+        }
+      }
+      if (replaced === false){
+        postsDup.push(action.post);
+      }
+
+      return Object.assign({}, initialState, {posts: postsDup});
     default:
       return state;
   }

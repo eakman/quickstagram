@@ -17,7 +17,7 @@ class ProfilePosts extends React.Component {
     // }
     // end
     // start
-    //     debugger
+        // debugger
         const posts = this.props.posts.map((postObj, idx) => {
           return(<ProfilePostContainer key={idx}
               post={ postObj } id={idx} postId={ postObj.id } />);
