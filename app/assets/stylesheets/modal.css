@@ -72,6 +72,18 @@
   cursor: pointer;
 }
 
+.upload-form input:hover {
+  background: #fafafa;
+}
+
+.upload-form label:hover {
+  background: #fafafa;
+}
+
+.upload-form button:hover {
+  background: #fafafa;
+}
+
 #create-text-input {
   width: 343px;
   border-top: none;
@@ -90,6 +102,7 @@
   text-align: center;
   border-top: none;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 .form-container label {
@@ -110,4 +123,28 @@
 
 #file {
   display: none;
+}
+
+
+.log-out-button {
+  display: block;
+  background: #fff;
+  padding: 10px 20px;
+  border: 1px solid rgb(219, 219, 219);
+  display: block;
+  position: relative;
+  width: 343px;
+  margin: auto;
+  /*font-weight: bold;*/
+  text-align: center;
+  border-top: none;
+  letter-spacing: 2px;
+  cursor: pointer;
+  background: #fff;
+  margin: auto;
+  margin-top: 15%;
+}
+
+.log-out-button:hover {
+  background: #fafafa;
 }

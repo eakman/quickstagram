@@ -8,6 +8,7 @@
   margin: auto !important;
   position: relative;
   margin-top: 30px !important;
+  overflow: hidden;
 
 }
 
@@ -18,10 +19,13 @@
 
 
 #post-show-image {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   float: left;
   width: 600px !important;
   height: 600px !important;
+
 }
 
 #post-side-bar {

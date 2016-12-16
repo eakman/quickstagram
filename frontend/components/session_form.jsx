@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
   guestLogin(e) {
     // debugger
     e.preventDefault();
-    const guest = {username: 'user2', password: 'password'};
+    const guest = {username: 'guest', password: 'password'};
     return this.props.logIn(guest).then(() => this.props.router.push('/main/feed'));
   }
 

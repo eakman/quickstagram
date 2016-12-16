@@ -5,10 +5,10 @@ import {
 } from '../actions/posts_actions';
 
 const initialState = {
-  posts: {},
+  posts: [],
   errors: []
 };
-
+// posts: {},
 const postsReducer = (state=initialState, action) => {
 
   switch(action.type) {

@@ -21,7 +21,7 @@ class Feed extends React.Component {
     return (
       //jshint ignore: start
       <div>
-        <button onClick={ this.handleLogOut }>Log out</button>
+
         <section className='content-main group'>
           <Posts posts={ this.props.posts.posts }
             currentUser={ this.props.currentUser }
@@ -34,4 +34,8 @@ class Feed extends React.Component {
   }
 }
 
+
 export default Feed;
+
+
+// <button onClick={ this.handleLogOut }>Log out</button>

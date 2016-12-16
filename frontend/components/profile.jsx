@@ -24,7 +24,13 @@ class Profile extends React.Component {
     this.editProfilePic = this.editProfilePic.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
+    this.logoutModal = this.logoutModal.bind(this);
     this.form;
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return Boolean(nextProps.currentUser);
   }
 
   closeModal(){
@@ -81,6 +87,19 @@ class Profile extends React.Component {
     e.currentTarget.children[0].value = '';
   }
 
+  handleLogOut() {
+
+    this.props.logOut().then(() => this.props.router.push('/log_in'));
+
+  }
+
+  logoutModal() {
+    this.openModal();
+    this.form = <button
+      onClick={ this.handleLogOut }
+      className='log-out-button'>Log out</button>
+  }
+
   render() {
     if (this.props.user === null){
       //jshint ignore: start
@@ -126,10 +145,13 @@ class Profile extends React.Component {
                 <div className="follow-button-container">
                   {ActionButton}
                 </div>
+                <button onClick={ this.logoutModal} className='logout-button'>
+                  <img src={ window.logoutButton } />
+                </button>
               </div>
               <ul className='stats'>
                 <li><span>{this.props.user.post_count}</span> posts</li>
-                <li><span>{this.props.user.follows_count}</span> follows</li>
+                <li><span>{this.props.user.follows_count}</span> following</li>
                 <li><span>{this.props.user.followers_count}</span> followers</li>
               </ul>
             </div>

@@ -61,7 +61,10 @@
 }
 
 .header-content {
+  display: flex;
   width: 1010px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .feed-header h1 {

@@ -7,6 +7,7 @@ json.set! post.id do
   json.set! 'user' do
     json.username post.user.username
     json.avatar_url asset_path(post.user.avatar.url)
+    json.id post.user.id
   end
   json.comments do
     json.array! post.comments do |comment|

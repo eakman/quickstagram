@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         post :toggle_follow
         get :get_user_posts
       end
+      get "search", on: :collection
       resources :posts, only: [:index]
       resources :follows, only: [:index]
     end
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
       member do
         post :toggle_like
         post :create_comment
-
       end
     end
 

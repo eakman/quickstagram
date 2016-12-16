@@ -22,3 +22,10 @@ export const toggleFollow = (user_id) => {
     url: `/api/users/${user_id}/toggle_follow`
   });
 };
+
+export const searchUsers = (query_string) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/search?query=${query_string}`
+  });
+};

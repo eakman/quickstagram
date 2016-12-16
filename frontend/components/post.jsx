@@ -60,8 +60,10 @@ class Post extends React.Component {
     if (likesCount === 1){
       likesCountString = `${ likesCount } like`;
     }
+    // debugger
     const description = {
-                          user: {username: this.props.postObj.user.username},
+                          user: {username: this.props.postObj.user.username,
+                                  id: this.props.postObj.user.id },
                           body: this.props.postObj.description,
                           id: -1};
     return(
@@ -89,7 +91,7 @@ class Post extends React.Component {
           <div className='post'>
             <img src={ this.props.pic }/>
           </div>
-          
+
           <section className='post-footer group'>
             <div className='likes-count'>{ likesCountString }</div>
             <Comment comment={ description } />

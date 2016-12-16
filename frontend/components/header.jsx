@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchContainer from './search/search_container';
 
 const Header = (props) => {
 
@@ -10,7 +11,6 @@ const Header = (props) => {
   const handleHomeButton = () => {
     props.router.push('/main/feed');
   };
-
   return(
     <header className='feed-header group'>
       <nav className='feed-header-nav group'>
@@ -22,6 +22,9 @@ const Header = (props) => {
             <div className='narrow-line group'><div></div></div>
             <h1><a className='logo'>Quickstagram</a></h1>
           </button>
+
+          <SearchContainer />
+
           <button onClick={ handleProfileButton } className='profile-button'>
             <img className='profile-icon'
                 src={ window.profileButton }/>

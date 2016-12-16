@@ -134,3 +134,21 @@ justify-content: initial;
   border-color: #70c050;
   color: #fff;
 }
+
+.logout-button {
+  margin-left: 54px;
+  background: none;
+  border: none;
+  height: 31px;
+  align-items: center;
+  position: relative;
+  top: 9px;
+  cursor: pointer;
+}
+
+.logout-button img {
+  display: block;
+  width: 25px;
+  height: 25px;
+
+}

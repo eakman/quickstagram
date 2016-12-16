@@ -49,9 +49,9 @@ class ProfilePost extends React.Component {
         <Modal style={ Style } isOpen={this.state.modalOpen} contentLabel={'hello1'} >
           <button onClick={this.closeModal} className='modal-button'>x</button>
             <div className='post-show-image-container'>
-
-              <img id='post-show-image' src={this.props.post.picture_url}></img>
-
+              <div id='post-show-image'>
+              <img  src={this.props.post.picture_url}></img>
+              </div>
 
 
 

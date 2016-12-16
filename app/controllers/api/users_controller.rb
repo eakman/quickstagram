@@ -2,9 +2,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
-
       log_in(@user)
       render :user
     else
@@ -12,11 +10,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def search
+    # query_str = URI.parse(request.original_url).query
+    @users = User.where("LOWER(username) ~ ?", params[:query].downcase)
+    render :search
+  end
+
   def show
     @user = User.find(params[:id])
-
     if @user
-        # debugger
         @is_following = is_following?(@user, current_user.id)
         render :user
     else
@@ -28,7 +30,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user
       @posts = @user.posts
-      render 'api/posts/index'
+      render 'api/posts/index2'
     else
       render json: ['no posts']
     end
@@ -45,8 +47,6 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # @user.avatar = user_params[:avatar]
-
     if @user.update(avatar: user_params[:avatar])
       render :user
     else
@@ -81,10 +81,6 @@ class Api::UsersController < ApplicationController
         render json: ['unsuccessful follow']
       end
     end
-  end
-
-  def suggested_follows
-    #people who are following the current user where they are not following back
   end
 
   private
