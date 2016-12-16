@@ -1,6 +1,7 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user, :likes, {comments: :user}).order("created_at DESC")
+    # @posts = Post.includes(:user, :likes, {comments: :user}).order("created_at DESC")
+    @posts = User.get_followed_posts(current_user)
     render :index2
   end
 

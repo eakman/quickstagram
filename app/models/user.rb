@@ -38,7 +38,18 @@ class User < ActiveRecord::Base
       foreign_key: :followed_id,
       primary_key: :id
 
+    has_many :followed_users,
+      through: :follows,
+      source: :followed
 
+    has_many :followed_posts,
+      through: :followed_users,
+      source: :posts
+
+    ###
+    def self.get_followed_posts(user)
+      (user.followed_posts + user.posts).sort_by(&:created_at).reverse
+    end
     ###
     def ensure_session_token
       self.session_token ||= SecureRandom::urlsafe_base64(16)

@@ -43,11 +43,14 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
+
     const user_id = this.props.router.params.id;
     this.props.fetchUser(user_id).then((user) => console.log(this.props));
     this.props.getUserPosts(user_id);
 
   }
+
+  
 
   componentWillReceiveProps(nextProps, nextState) {
     if (nextProps.params.id !== this.props.params.id){
