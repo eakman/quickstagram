@@ -50,7 +50,7 @@ class Profile extends React.Component {
 
   }
 
-  
+
 
   componentWillReceiveProps(nextProps, nextState) {
     if (nextProps.params.id !== this.props.params.id){
@@ -124,7 +124,7 @@ class Profile extends React.Component {
       if (this.props.user.id === this.props.currentUser.id){
         ActionButton = <button onClick={ this.addPost }
             className='follow-button add-button'>Add post</button>;
-      } else {
+    } else {
         let fButtonText = 'Follow';
         if (this.props.user.followed){
           fButtonText = 'Following';
@@ -132,8 +132,17 @@ class Profile extends React.Component {
         let fButtonClass = `follow-button ${fButtonText}`;
         ActionButton = <button onClick={ this.toggFollow }
             className={fButtonClass}>{fButtonText}</button>;
-      }
+    }
 
+    let message = '';
+    if (this.props.posts.posts.length === 0) {
+      if (this.props.user.id === currentUser.id) {
+        message = <h1 className='message'>Welcome, click the add post button to start adding pictures!</h1>;
+      } else {
+        message = <h1 className='message'>This user has no posts yet!</h1>
+      }
+    }
+    // debugger
       document.getElementById('title-el').innerHTML = `${this.props.user.username}`;
 
       //jshint ignore: end
@@ -171,6 +180,7 @@ class Profile extends React.Component {
               </ul>
             </div>
             </header>
+            {message}
           <ProfilePosts posts={ this.props.posts.posts } />
         </article>
         //jshint ignore: end
@@ -179,21 +189,3 @@ class Profile extends React.Component {
 }
 
 export default Profile;
-
-
-// onClick={ this.editProfilePic }
-
-// classId={'modal-1'} className='profile-modal'
-
-// <Modal classId={'modal-2'} className='profile-modal'>
-//   <CreatePostForm makeAPost={ this.props.makeAPost } />
-// </Modal>
-
-
-// <div className='form-container group'>
-//   <h1>SELECT PROFILE PICTURE</h1>
-//   <form onSubmit={ this.handleSubmit } className='upload-form'>
-//     <input type='file' onChange={ this.updateFile } />
-//     <button type='submit'>SUBMIT</button>
-//   </form>
-// </div>

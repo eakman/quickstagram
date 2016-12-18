@@ -152,3 +152,13 @@ justify-content: initial;
   height: 25px;
 
 }
+
+.message {
+  font-size: 24px;
+  display: block;
+  position: relative;
+  margin: auto;
+  padding: 20px 0;
+  text-align: center;
+  color: #ccc;
+}

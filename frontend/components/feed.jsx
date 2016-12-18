@@ -17,13 +17,19 @@ class Feed extends React.Component {
     this.props.logOut().then(() => this.props.router.push('/log_in'));
   }
 
+
   render() {
+    let message = '';
+    if (this.props.posts.posts.length === 0) {
+        message = <h1 className='message'>Welcome, follow people to see posts in your feed!</h1>
+    }
     document.getElementById('title-el').innerHTML = 'Quickstagram';
     return (
       //jshint ignore: start
       <div>
 
         <section className='content-main group'>
+          {message}
           <Posts posts={ this.props.posts.posts }
             currentUser={ this.props.currentUser }
             likeAPost={ this.props.likeAPost }
