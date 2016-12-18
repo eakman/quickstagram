@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
     has_attached_file :avatar, default_url: ActionController::Base.helpers.asset_path("social.png")
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+
+
+
     after_initialize :ensure_session_token
     attr_reader :password
 
@@ -48,7 +51,7 @@ class User < ActiveRecord::Base
 
     ###
     def self.get_followed_posts(user)
-      (user.followed_posts + user.posts).sort_by(&:created_at).reverse
+      (user.followed_posts.includes(:user, :likes, {comments: :user}) + user.posts.includes(:user, :likes, {comments: :user})).sort_by(&:created_at).reverse
     end
     ###
     def ensure_session_token
