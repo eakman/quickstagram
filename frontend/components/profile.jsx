@@ -27,6 +27,7 @@ class Profile extends React.Component {
     this.handleLogOut = this.handleLogOut.bind(this);
     this.logoutModal = this.logoutModal.bind(this);
     this.form;
+    this.message
   }
 
   shouldComponentUpdate(nextProps) {
@@ -57,6 +58,18 @@ class Profile extends React.Component {
         const user_id = this.props.router.params.id;
         this.props.fetchUser(user_id).then((user) => console.log(this.props));
         this.props.getUserPosts(user_id);
+      }
+
+      this.message = '';
+      // debugger
+      if (nextProps.posts.posts.length === 0) {
+        if (nextProps.user && nextProps.currentUser){
+          if (nextProps.user.id === nextProps.currentUser.id) {
+            this.message = <h1 className='message'>Welcome, click the add post button to start adding pictures!</h1>;
+            } else {
+              this.message = <h1 className='message'>This user has no posts yet!</h1>
+            }
+        }
       }
   }
 
@@ -134,14 +147,8 @@ class Profile extends React.Component {
             className={fButtonClass}>{fButtonText}</button>;
     }
 
-    let message = '';
-    if (this.props.posts.posts.length === 0) {
-      if (this.props.user.id === currentUser.id) {
-        message = <h1 className='message'>Welcome, click the add post button to start adding pictures!</h1>;
-      } else {
-        message = <h1 className='message'>This user has no posts yet!</h1>
-      }
-    }
+
+
     // debugger
       document.getElementById('title-el').innerHTML = `${this.props.user.username}`;
 
@@ -180,7 +187,7 @@ class Profile extends React.Component {
               </ul>
             </div>
             </header>
-            {message}
+            {this.message}
           <ProfilePosts posts={ this.props.posts.posts } />
         </article>
         //jshint ignore: end
