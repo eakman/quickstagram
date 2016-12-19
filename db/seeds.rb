@@ -25,7 +25,14 @@
   'app/assets/images/seed/lswyrs6e3dg-clem-onojeghuo.jpg',
   'app/assets/images/seed/n56qcb6v4kw-freestocks-org.jpg',
   'app/assets/images/seed/o5kdedzhvpw-igor-ovsyannykov.jpg',
-  'app/assets/images/seed/ph88thg-1yw-caleb-george.jpg']
+  'app/assets/images/seed/ph88thg-1yw-caleb-george.jpg',
+  'app/assets/images/seed/onus-vjdeuo-jorge-flores.jpg',
+  'app/assets/images/seed/oyco1xsyrq0-andre-branco.jpg',
+  'app/assets/images/seed/ravwym3xk7y-adam-birkett.jpg',
+  'app/assets/images/seed/swpq9fqgfg0-annie-spratt.jpg',
+  'app/assets/images/seed/t05kfheygbe-matthew-skinner.jpg',
+  'app/assets/images/seed/tb5a-qti6xg-jamie-street.jpg',
+  'app/assets/images/seed/wqw4mli5qsq-redd-angelo.jpg']
 
   User.destroy_all
   Post.destroy_all
@@ -46,7 +53,29 @@
   user4.avatar = File.open('app/assets/images/seed/profile/7vpzxf-whko-freestocks-org.jpg')
   user4.save!
 
-  Users = [user1, user2, user3, user4]
+  user5 = User.new({username: 'jason', password: 'password'})
+  user5.avatar = File.open('app/assets/images/seed/profile/fl_l6qobfn4-toa-heftiba.jpg')
+  user5.save!
+
+  user6 = User.new({username: 'kelly', password: 'password'})
+  user6.avatar = File.open('app/assets/images/seed/profile/ru051j7-jqa-tim-cook.jpg')
+  user6.save!
+
+  user7 = User.new({username: 'michael', password: 'password'})
+  user7.avatar = File.open('app/assets/images/seed/profile/yeh5eirfcis-adam-jaime.jpg')
+  user7.save!
+
+  user8 = User.new({username: 'jim', password: 'password'})
+  user8.avatar = File.open('app/assets/images/seed/profile/pmhoqj3ce1e-chad-madden.jpg')
+  user8.save!
+
+  user9 = User.new({username: 'eric', password: 'password'})
+  user9.avatar = File.open('app/assets/images/seed/profile/4uojmedcwi8-tim-bogdanov.jpg')
+  user9.save!
+
+
+
+  Users = [user1, user2, user3, user4, user5, user6, user7, user8, user9]
 
   until POSTS.empty?
     Users.each do |user|
