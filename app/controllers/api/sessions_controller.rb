@@ -5,7 +5,6 @@ class Api::SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-    # debugger
 
     if @user
       log_in(@user)
@@ -25,6 +24,6 @@ class Api::SessionsController < ApplicationController
     render 'api/users/user', user: @user
   end
 
-  
+
 
 end

@@ -33,27 +33,3 @@ class Posts extends React.Component {
   }
 }
 export default Posts;
-
-
-
-//start
-// const allPosts = [];
-// let i = 0;
-// for (let obj in this.props.posts) {
-//   debugger
-//   const postObj = this.props.posts[obj];
-//   let pic = '';
-//   let post_id = obj;
-//   if (postObj.picture_url) {
-//     pic = postObj.picture_url;
-//   }
-//   allPosts.push(
-//     <Post key={ i } postObj={ postObj } pic={ pic } post_id={ post_id }
-//         currentUser={ this.props.currentUser } i={ i }
-//         likeAPost={ this.props.likeAPost }
-//         makeAComment={ this.props.makeAComment } />
-//     );
-//   i++;
-// }
-//end
-//start

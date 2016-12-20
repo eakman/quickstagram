@@ -17,9 +17,7 @@ class CreatePostForm extends React.Component {
 
     if (e.currentTarget.attributes.name.nodeValue === 'image') {
         const file = e.currentTarget.files[0];
-        this.setState({ imageFile: file }, () =>{
-          console.log(this.state);
-        });
+        this.setState({ imageFile: file });
       } else if (e.currentTarget.attributes.name.nodeValue === 'description'){
         this.setState({ description: e.currentTarget.value});
       } else if (e.currentTarget.attributes.name.nodeValue === 'location'){

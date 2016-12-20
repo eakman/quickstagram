@@ -46,7 +46,7 @@ class Profile extends React.Component {
   componentDidMount() {
 
     const user_id = this.props.router.params.id;
-    this.props.fetchUser(user_id).then((user) => console.log(this.props));
+    this.props.fetchUser(user_id);
     this.props.getUserPosts(user_id);
 
   }
@@ -56,12 +56,11 @@ class Profile extends React.Component {
   componentWillReceiveProps(nextProps, nextState) {
     if (nextProps.params.id !== this.props.params.id){
         const user_id = this.props.router.params.id;
-        this.props.fetchUser(user_id).then((user) => console.log(this.props));
+        this.props.fetchUser(user_id);
         this.props.getUserPosts(user_id);
       }
 
       this.message = '';
-      // debugger
       if (nextProps.posts.posts.length === 0) {
         if (nextProps.user && nextProps.currentUser){
           if (nextProps.user.id === nextProps.currentUser.id) {
@@ -97,9 +96,7 @@ class Profile extends React.Component {
 
   updateFile (e) {
     const file = e.currentTarget.files[0];
-    this.setState({ imageFile: file }, () =>{
-      console.log(this.state);
-    });
+    this.setState({ imageFile: file });
 
   }
 
@@ -147,9 +144,6 @@ class Profile extends React.Component {
             className={fButtonClass}>{fButtonText}</button>;
     }
 
-
-
-    // debugger
       document.getElementById('title-el').innerHTML = `${this.props.user.username}`;
 
       //jshint ignore: end

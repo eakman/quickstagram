@@ -7,7 +7,6 @@ import Comment from '../comment';
 import LikeCommentFormContainer from './like_comment_form_container';
 
 class ProfilePost extends React.Component {
-  // debugger
   constructor (props) {
     super(props);
 
@@ -33,7 +32,7 @@ class ProfilePost extends React.Component {
   }
 
   render () {
-  
+
     const likesCount = this.props.post.likes.length;
     let likesCountString = `${ likesCount } likes`;
     if (likesCount === 1){

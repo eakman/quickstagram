@@ -8,21 +8,12 @@ class ProfilePosts extends React.Component {
   }
 
   render() {
-    // // start
-    // const posts = [];
-    // let i = 0;
-    // for (let postObj in this.props.posts) {
-    //   posts.push(<ProfilePostContainer key={i} post={ this.props.posts[postObj] } id={i} postId={ postObj } />);
-    //   i++;
-    // }
-    // end
-    // start
-        // debugger
+
         const posts = this.props.posts.map((postObj, idx) => {
           return(<ProfilePostContainer key={idx}
               post={ postObj } id={idx} postId={ postObj.id } />);
         });
-    //     //end
+    
         return(
           <div>
 

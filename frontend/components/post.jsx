@@ -60,7 +60,6 @@ class Post extends React.Component {
     if (likesCount === 1){
       likesCountString = `${ likesCount } like`;
     }
-    // debugger
     const description = {
                           user: {username: this.props.postObj.user.username,
                                   id: this.props.postObj.user.id },

@@ -4,7 +4,6 @@ import { Link }  from 'react-router';
 class Comment extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
 
     this.showUser = this.showUser.bind(this);
   }

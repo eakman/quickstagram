@@ -48,7 +48,7 @@ class LikeCommentForm extends React.Component {
     e.preventDefault();
     return this.props.makeAComment(
       this.props.postId, {body: this.state.commentInputText})
-        .then(this.setState({commentInputText: ''}), () => console.log(this.state));
+        .then(this.setState({commentInputText: ''}));
   }
 
   handleChange(e) {

@@ -10,7 +10,7 @@ import { Router, Route, IndexRoute, hashHistory, IndexRedirect } from 'react-rou
 const Root = ({ store }) => {
 
   const redirectIfLoggedIn = (nextState, replace) => {
-    // debugger
+
     if (store.getState().session.currentUser) {
       replace('/main/feed');
     }
