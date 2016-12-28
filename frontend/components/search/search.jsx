@@ -26,18 +26,6 @@ class Search extends React.Component {
   }
 
   render() {
-    // if ( this.props.users.length === 0 ){
-    //
-    //   if (document.getElementsByClassName('search-results')[0]){
-    //     document.getElementsByClassName('search-results')[0].style.visibility = 'hidden';
-    //   }
-    // } else {
-    //   if (this.state.inputText !== ''){
-    //     if (document.getElementsByClassName('search-results')[0]){
-    //       document.getElementsByClassName('search-results')[0].style.visibility = 'visible';
-    //     }
-    //   }
-    // }
 
     let userList = '';
     if (this.state.inputText.length > 0){

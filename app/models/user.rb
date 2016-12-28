@@ -50,8 +50,13 @@ class User < ActiveRecord::Base
       source: :posts
 
     ###
-    def self.get_followed_posts(user)
-      (user.followed_posts.includes(:user, :likes, {comments: :user}) + user.posts.includes(:user, :likes, {comments: :user})).sort_by(&:created_at).reverse
+    def self.get_followed_posts(user, page_number)
+      # (user.followed_posts.includes(:user, :likes, {comments: :user}) + user.posts.includes(:user, :likes, {comments: :user})).sort_by(&:created_at).reverse
+      follows = user.follows.select('id')
+      Post.where('user_id = ? OR user_id IN( ? )', user.id, follows)
+        .includes(:user, :likes, {comments: :user})
+        .order('created_at DESC')
+        .page(page_number).per(3)
     end
     ###
     def ensure_session_token

@@ -3,11 +3,20 @@ import { userPosts, createPost, allPosts, likePost, createComment } from '../uti
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POSTS_ERRORS = 'RECEIVE_POSTS_ERRORS';
 export const RECEIVE_A_POST = 'RECEIVE_A_POST';
+export const RECEIVE_MORE_POSTS = 'RECEIVE_MORE_POSTS';
 
-export const getAllPosts = (user) => {
+export const getAllPosts = (user, page_number) => {
   return (dispatch) => {
-    return allPosts(user)
+    return allPosts(user, page_number)
       .then( posts => dispatch(receiveAllPosts(posts)),
+            errors => dispatch(receivePostsErrors(errors.responseJSON)));
+  };
+};
+
+export const getMorePosts = (user, page_number) => {
+  return (dispatch) => {
+    return allPosts(user, page_number)
+      .then( posts => dispatch(receiveMorePosts(posts)),
             errors => dispatch(receivePostsErrors(errors.responseJSON)));
   };
 };
@@ -50,6 +59,11 @@ export const receiveAllPosts = (posts) => ({
   posts
 });
 
+export const receiveMorePosts = (posts) => ({
+  type: RECEIVE_MORE_POSTS,
+  posts
+});
+
 export const receivePostsErrors = (errors) => ({
   type: RECEIVE_POSTS_ERRORS,
   errors
@@ -59,6 +73,8 @@ export const receiveAPost = (post) => ({
     type: RECEIVE_A_POST,
     post
 });
+
+
 //
 // export const getPost = (post) => {
 //   return (dispatch) => {

@@ -15,15 +15,13 @@ class Comment extends React.Component {
     const userUrl = `/main/profile/${comment.user.id}`;
 
     return (
-      //jshint ignore: start
       <div className='comment-body' key={'cmnt-body-' + comment.id}>
         <div className='comment-text' key={'cmnt-text-' + comment.id}>
             <Link to={ userUrl } className='comment-uname' key={'cmnt-uname-' + this.props.id}>
               { comment.user.username }
-            </Link> { comment.body }
+            </Link> <span style={{display: 'inline'}}>{ comment.body }</span>
         </div>
       </div>
-      //jshint ignore: end
     );
   }
 }

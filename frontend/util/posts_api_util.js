@@ -1,7 +1,16 @@
-export const allPosts = (user) => {
+export const allPosts = (user, page) => {
   return $.ajax({
     method: 'GET',
     url: `/api/users/${user.id}/posts`,
+    data: { page }
+  });
+};
+
+export const morePosts = (user, page) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${user.id}/posts`,
+    data: { page }
   });
 };
 
