@@ -29,16 +29,27 @@ class Search extends React.Component {
 
     let userList = '';
     if (this.state.inputText.length > 0){
-      userList = this.props.users.map((user) => {
-        const userUrl = `/main/profile/${user.id}`;
-        return (
-          <li className='search-item' key={ user.id }>
-          <Link onClick={ this.handleClick } to={ `/main/profile/${user.id}` } >
-            <img className='search-av' src={user.avatar} />
-            <h1 className='search-pic'>{ user.username }</h1>
-           </Link>
-         </li>
-        );
+      userList = this.props.users.map((user, idx) => {
+        if (user.avatar !== '#'){
+          const userUrl = `/main/profile/${user.id}`;
+          return (
+            <li className='search-item' key={ idx }>
+            <Link onClick={ this.handleClick } to={ `/main/profile/${user.id}` } >
+              <img className='search-av' src={user.avatar} />
+              <h1 className='search-pic'>{ user.username }</h1>
+             </Link>
+           </li>
+          );
+        } else {
+          return (
+            <li className='search-item' key={ idx }>
+            <Link onClick={ this.handleClick } to={ `/main/results/${user.username.slice(1)}` } >
+              <h1 className='search-av'>{user.avatar}</h1>
+              <h1 className='search-pic'>{ user.username.slice(1) }</h1>
+             </Link>
+           </li>
+         );
+        }
       });
     }
     return(

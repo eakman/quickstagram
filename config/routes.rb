@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy]
 
+    resources :hash_tags, only: :none do
+      get "search", on: :collection
+    end
 
   end
 end

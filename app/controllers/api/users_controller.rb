@@ -13,6 +13,9 @@ class Api::UsersController < ApplicationController
   def search
     # query_str = URI.parse(request.original_url).query
     @users = User.where("LOWER(username) ~ ?", params[:query].downcase)
+    @hash_tags = HashTag.select('hash_tag').distinct
+            .where("LOWER(hash_tag) ~ ?", params[:query].downcase)
+    @stuff = @users + @hash_tags
     render :search
   end
 
