@@ -4,21 +4,20 @@ import ProfilePosts from '../profile_posts/profile_posts';
 class SearchResults extends React.Component {
   constructor(props) {
     super(props);
-    this.isFetching = true;
   }
 
   componentDidMount() {
-    this.props.postsByTag(this.props.params.hash_tag).then(
-      this.isFetching = false
-    );
+    this.props.postsByTag(this.props.params.hash_tag);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.params.hash_tag !== this.props.params.hash_tag) {
+      nextProps.postsByTag(nextProps.params.hash_tag);
+    }
+  }
+
+
   render() {
-    if (this.isFetching === true ){
-      return (
-        <div></div>
-      );
-    } else {
       return (
         <div className='search-res-container'>
           <h1 className='hash-name'>#{this.props.params.hash_tag}</h1>
@@ -26,7 +25,7 @@ class SearchResults extends React.Component {
           <ProfilePosts posts={ this.props.posts.posts } />
         </div>
       );
-    }
+
   }
 }
 
