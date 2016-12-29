@@ -11,7 +11,6 @@ const initialState = {
 };
 // posts: {},
 const postsReducer = (state=initialState, action) => {
-
   switch(action.type) {
     case RECEIVE_ALL_POSTS:
       return Object.assign({}, initialState, { posts: action.posts });

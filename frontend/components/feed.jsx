@@ -10,15 +10,14 @@ class Feed extends React.Component {
     this.delayer = this.delayer.bind(this);
     this.doThisStuffOnScroll = this.doThisStuffOnScroll.bind(this);
     this.didScroll = false;
-    window.onscroll = this.doThisStuffOnScroll;
     setInterval(this.delayer , 200);
   }
 
   delayer() {
-      if(this.didScroll) {
-        this.nextPage();
-          this.didScroll = false;
-        }
+    if(this.didScroll) {
+      this.nextPage();
+        this.didScroll = false;
+    }
   }
 
   doThisStuffOnScroll() {
@@ -27,11 +26,13 @@ class Feed extends React.Component {
 
   componentDidMount() {
       this.props.getAllPosts(this.props.currentUser, 1).then();
+      window.onscroll = this.doThisStuffOnScroll;
+
   }
 
-  // handleLogOut() {
-  //   this.props.logOut().then(() => this.props.router.push('/log_in'));
-  // }
+  componentWillUnmount() {
+    window.onscroll = null;
+  }
 
   nextPage () {
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {

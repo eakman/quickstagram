@@ -6,6 +6,7 @@ import MainContainer from './main_container';
 import FeedContainer from './feed_container';
 import ProfileContainer from './profile_container';
 import { Router, Route, IndexRoute, hashHistory, IndexRedirect } from 'react-router';
+import SearchResultsContainer from './search/search_results_container';
 
 const Root = ({ store }) => {
 
@@ -34,6 +35,7 @@ const Root = ({ store }) => {
               <IndexRedirect to='feed'/>
               <Route path='feed' component={ FeedContainer }/>
               <Route path='profile/:id' component={ ProfileContainer }/>
+              <Route path='results/:hash_tag' component={ SearchResultsContainer }/>
             </Route>
             <Route path='/log_in' component={ SessionFormContainer } onEnter={ redirectIfLoggedIn } />
         </Route>

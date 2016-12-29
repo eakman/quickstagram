@@ -19,6 +19,13 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def posts_by_tag
+    # query_str = URI.parse(request.original_url).query
+    post_ids = HashTag.where(hash_tag: "##{params[:query]}").select('post_id')
+    @posts = Post.where("id IN (?)", post_ids);
+    render 'api/posts/index2'
+  end
+
   def show
     @post = Post.find(params[:id])
     if @post
@@ -55,8 +62,17 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def register_tags(comment_body, post_id)
+    comment_body.split(' ').each do |word|
+      if word[0] === '#'
+        HashTag.create(hash_tag: word, post_id: post_id)
+      end
+    end
+  end
+
   def create_comment
     @post = Post.find(params[:id])
+    register_tags(comment_params[:body], params[:id])
     comment = @post.comments.new(body: comment_params[:body] ,user_id: current_user.id)
     if comment.save
       redirect_to api_post_url(@post.id)

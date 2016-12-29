@@ -125,11 +125,8 @@ class Profile extends React.Component {
 
   render() {
     if (this.props.user === null){
-      //jshint ignore: start
       return <div></div>;
-      //jshint ignore: end
     }
-      //jshint ignore: start
       let ActionButton;
       if (this.props.user.id === this.props.currentUser.id){
         ActionButton = <button onClick={ this.addPost }
@@ -146,9 +143,7 @@ class Profile extends React.Component {
 
       document.getElementById('title-el').innerHTML = `${this.props.user.username}`;
 
-      //jshint ignore: end
       return(
-        //jshint ignore: start
         <article className='profile-container group'>
           <Modal style={Style} isOpen={this.state.modalOpen} contentLabel={'hello'} >
             <button onClick={this.closeModal} className='modal-button'>x</button>
@@ -184,7 +179,6 @@ class Profile extends React.Component {
             {this.message}
           <ProfilePosts posts={ this.props.posts.posts } />
         </article>
-        //jshint ignore: end
       );
     }
 }

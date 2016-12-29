@@ -1,4 +1,4 @@
-import { userPosts, createPost, allPosts, likePost, createComment } from '../util/posts_api_util';
+import { getPostsByTag, userPosts, createPost, allPosts, likePost, createComment } from '../util/posts_api_util';
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POSTS_ERRORS = 'RECEIVE_POSTS_ERRORS';
@@ -17,6 +17,14 @@ export const getMorePosts = (user, page_number) => {
   return (dispatch) => {
     return allPosts(user, page_number)
       .then( posts => dispatch(receiveMorePosts(posts)),
+            errors => dispatch(receivePostsErrors(errors.responseJSON)));
+  };
+};
+
+export const postsByTag = (hash_tag) => {
+  return (dispatch) => {
+    return getPostsByTag(hash_tag)
+      .then( posts => dispatch(receiveAllPosts(posts)),
             errors => dispatch(receivePostsErrors(errors.responseJSON)));
   };
 };

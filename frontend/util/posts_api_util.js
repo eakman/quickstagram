@@ -6,6 +6,13 @@ export const allPosts = (user, page) => {
   });
 };
 
+export const getPostsByTag = (hash_tag) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/posts/posts_by_tag?query=${hash_tag}`
+  });
+};
+
 export const morePosts = (user, page) => {
   return $.ajax({
     method: 'GET',
@@ -36,13 +43,7 @@ export const userPosts = (user_id) => {
   });
 };
 
-// export const getPost = (post) => {
-//   return $.ajax({
-//     method: 'GET',
-//     url: `/api/posts/${post.id}`,
-//   });
-// }
-//
+
 export const createPost = (formData) => {
   return $.ajax({
     method: 'POST',

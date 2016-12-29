@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         post :toggle_like
         post :create_comment
       end
+      get "posts_by_tag", on: :collection
     end
 
     resource :session, only: [:create, :destroy]

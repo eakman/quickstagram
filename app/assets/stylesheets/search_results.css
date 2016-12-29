@@ -1,0 +1,23 @@
+.search-res-container {
+  margin: auto;
+  width: 969px;
+  text-align: center;
+  margin-top: 55px;
+}
+
+.hash-name {
+  font-size: 34px;
+  font-weight: 300;
+  margin-bottom: 13px;
+}
+
+.result-detail {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 31px;
+}
+
+.result-count {
+  font-weight: bold;
+
+}
