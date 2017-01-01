@@ -30,6 +30,10 @@ class Profile extends React.Component {
     this.message
   }
 
+  // componentWillMount() {
+  //   this.props.posts.posts = [];
+  // }
+
   shouldComponentUpdate(nextProps) {
     return Boolean(nextProps.currentUser);
   }

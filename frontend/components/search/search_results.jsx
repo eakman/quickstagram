@@ -4,15 +4,20 @@ import ProfilePosts from '../profile_posts/profile_posts';
 class SearchResults extends React.Component {
   constructor(props) {
     super(props);
+    this.isFetching = true;
+  }
+
+  componentWillMount() {
+    this.props.posts.posts = [];
   }
 
   componentDidMount() {
-    this.props.postsByTag(this.props.params.hash_tag);
+    this.props.postsByTag(this.props.params.hash_tag)
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params.hash_tag !== this.props.params.hash_tag) {
-      nextProps.postsByTag(nextProps.params.hash_tag);
+      nextProps.postsByTag(nextProps.params.hash_tag)
     }
   }
 
@@ -25,7 +30,6 @@ class SearchResults extends React.Component {
           <ProfilePosts posts={ this.props.posts.posts } />
         </div>
       );
-
   }
 }
 
