@@ -13,12 +13,17 @@
 #  picture_url_file_size    :integer
 #  picture_url_updated_at   :datetime
 #
+require "open-uri"
 
 class Post < ActiveRecord::Base
   validates :picture_url, :user_id, presence: true
 
   has_attached_file :picture_url, default_url: "instagram-chicagofoodauthority.jpg", processors: [:compression]
   validates_attachment_content_type :picture_url, content_type: /\Aimage\/.*\z/
+
+  def picture_from_url(url)
+    self.picture_url = open(url)
+  end
 
   belongs_to :user
   has_many :likes
