@@ -1,9 +1,7 @@
 class Api::PostsController < ApplicationController
   def index
-    # @posts = Post.includes(:user, :likes, {comments: :user}).order("created_at DESC")
     @posts = User.get_followed_posts(current_user, params[:page].to_i)
     @page = params[:page].to_i
-    # @posts = Post.all.page(params[:page]).per(5)
     render :index2
   end
 
@@ -20,7 +18,6 @@ class Api::PostsController < ApplicationController
   end
 
   def posts_by_tag
-    # query_str = URI.parse(request.original_url).query
     post_ids = HashTag.where(hash_tag: "##{params[:query]}").select('post_id')
     @posts = Post.where("id IN (?)", post_ids);
     render 'api/posts/index2'

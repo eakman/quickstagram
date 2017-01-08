@@ -31,7 +31,6 @@ class Modal extends React.Component {
   _render() {
 
     ReactDOM.render(
-      //jshint ignore: start
 
       <Provider store={configureStore()}>
         <div>
@@ -41,15 +40,13 @@ class Modal extends React.Component {
         </div>
       </Provider>,
       this.modalTarget
-      //jshint ignore: end
     );
   }
 
   render(){
 
-    //jshint ignore: start
+
     return <noscript />
-    //jshint ignore: end
   }
 
 }

@@ -126,5 +126,3 @@ class SessionForm extends React.Component {
 }
 
 export default SessionForm;
-// <img className="iPhones" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/home-phones.png/38825c9d5aa2.png" />
-// <img className="screen-shot" src="https://instagramstatic-a.akamaihd.net/h1/images/homepage/screenshot2.jpg/2d9d7248af43.jpg" />

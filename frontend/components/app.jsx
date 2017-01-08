@@ -1,4 +1,3 @@
-// jshint ignore: start
 import React from 'react';
 
 const App = ({ children }) => {

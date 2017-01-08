@@ -3,7 +3,6 @@ import Comment from './comment';
 
 const Comments = (props) => {
   return(
-    //jshint ignore: start
     <ul>
       {
         props.comments.map( (comment) => {
@@ -11,7 +10,6 @@ const Comments = (props) => {
         })
       }
     </ul>
-    //jshint ignore: end
   );
 };
 

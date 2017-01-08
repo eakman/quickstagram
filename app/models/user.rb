@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     validates :username, :password_digest, :session_token, presence: true
     validates :password, length: { minimum: 6, allow_nil: true }
 
-    has_attached_file :avatar, default_url: lambda { |image| ActionController::Base.helpers.asset_path("social.png")}
+    has_attached_file :avatar, default_url: lambda { |image| ActionController::Base.helpers.asset_path("social.png")}, processors: [:compression]
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 
@@ -49,16 +49,14 @@ class User < ActiveRecord::Base
       through: :followed_users,
       source: :posts
 
-    ###
     def self.get_followed_posts(user, page_number)
-      # (user.followed_posts.includes(:user, :likes, {comments: :user}) + user.posts.includes(:user, :likes, {comments: :user})).sort_by(&:created_at).reverse
       follows = user.follows.select('id')
       Post.where('user_id = ? OR user_id IN( ? )', user.id, follows)
         .includes(:user, :likes, {comments: :user})
         .order('created_at DESC')
         .page(page_number).per(3)
     end
-    ###
+
     def ensure_session_token
       self.session_token ||= SecureRandom::urlsafe_base64(16)
     end
@@ -73,7 +71,6 @@ class User < ActiveRecord::Base
       self.session_token
     end
 
-    ###
     def password=(password)
       @password = password
       self.password_digest = BCrypt::Password.create(password)
@@ -83,7 +80,6 @@ class User < ActiveRecord::Base
       BCrypt::Password.new(self.password_digest).is_password?(password)
     end
 
-    ###
     def self.find_by_credentials(username, password)
       user = User.find_by(username: username)
       (user && user.is_password?(password)) ? user : nil

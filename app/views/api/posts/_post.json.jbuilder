@@ -1,4 +1,3 @@
-# json.extract! post, :id, :picture_url, :description, :user_id, :location
 
   json.extract! post, :user_id, :description, :location, :id
   json.created_at post.created_at.to_i

@@ -1,5 +1,4 @@
 import React from 'react';
-// import Modal from '../modal';
 import Modal from 'react-modal';
 import Style from '../modal_style';
 import Comments from '../comments';
@@ -79,20 +78,3 @@ class ProfilePost extends React.Component {
 };
 
 export default ProfilePost;
-
-
-
-// <div className='comments-create post-show-create-comment'>
-//   <button onClick={ this.handleLike } className='like-button'>
-//     <img className='like-image' src={ this.state.likeImage }/>
-//   </button>
-// </div>
-//
-//   <form className='post-show-comment-form' onSubmit={this.handleSubmit}>
-//     <input type='text'
-//         onChange={ this.handleChange }
-//         value={ this.state.commentInputText } />
-//   </form>
-
-
-// classId={this.modalClass} className='profile-modal' modalClass='cool-modal' overlayClass='overlay'

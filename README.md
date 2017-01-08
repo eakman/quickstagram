@@ -2,7 +2,7 @@
 
 ### [Quickstagram live](https://quickstagram.herokuapp.com/#/)
 
-Quickstagram is an Instagram clone. Like Instagram, it gives users the ability to upload and and share photos with with their followers. One can also browse user profiles as well as comment and like posts.
+Quickstagram is a picture sharing app inspired by Instagram. Like Instagram, it gives users the ability to upload and and share photos with with their followers. One can also browse user profiles as well as comment and like posts.
 
 Quickstagram was built using Rails and PostgresQL on the backend and React Redux on the front.
 

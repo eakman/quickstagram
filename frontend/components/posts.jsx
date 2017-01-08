@@ -11,9 +11,7 @@ class Posts extends React.Component {
   render(){
 
     const allPosts = this.props.posts.map((postObj, idx) => {
-      // const postObj = this.props.posts[obj];
       let pic = '';
-      // let post_id = obj;
       if (postObj.picture_url) {
         pic = postObj.picture_url;
       }

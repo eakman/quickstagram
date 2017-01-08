@@ -16,23 +16,13 @@ class Main extends React.Component {
 
   render() {
     return (
-      //jshint ignore: start
       <div>
         <Header router={ this.props.router }
             currentUser={ this.props.currentUser} />
         { this.props.children }
       </div>
-      //jshint ignore: end
     );
   }
 }
 
 export default Main;
-
-// <button onClick={ this.handleLogOut }>Log out</button>
-// <section className='content-main group'>
-//   <Posts posts={ this.props.posts.posts }
-//     currentUser={ this.props.currentUser }
-//     likeAPost={ this.props.likeAPost }
-//     makeAComment={ this.props.makeAComment }/>
-// </section>

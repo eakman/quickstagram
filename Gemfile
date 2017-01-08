@@ -29,6 +29,8 @@ gem 'kaminari'
 gem "figaro"
 gem 'aws-sdk', '>= 2.0'
 gem "pry-rails", group:"development"
+gem 'thin'
+gem 'paperclip-compression'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "paperclip", "~> 5.0.0"

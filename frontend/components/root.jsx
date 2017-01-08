@@ -25,7 +25,6 @@ const Root = ({ store }) => {
   };
 
   return (
-    //jshint ignore: start
     <Provider store={ store }>
       <Router history={ hashHistory }>
 
@@ -42,24 +41,8 @@ const Root = ({ store }) => {
 
       </Router>
     </Provider>
-    //jshint ignore: end
   );
 
 };
 
 export default Root;
-
-
-
-// <Provider store={ store }>
-//   <Router history={ hashHistory }>
-//     <Route className='app' path='/' component={ App } >
-//       <IndexRoute
-//         component={ SessionFormContainer } onEnter={ redirectIfLoggedIn }/>
-//       <Route path='/main' component={ MainContainer } onEnter={ redirectIfNotLoggedIn }>
-//         <Route path='feed' component={ FeedContainer }/>
-//         <Route path='profile' component={ ProfileContainer }/>
-//       </Route>
-//     </Route>
-//   </Router>
-// </Provider>

@@ -1,5 +1,4 @@
 import React from 'react';
-// import Modal from './modal';
 import Modal from 'react-modal';
 import ProfilePosts from './profile_posts/profile_posts';
 import CreatePostForm from './profile_posts/create_post_form';
@@ -11,12 +10,10 @@ import ProfilePicForm from './profile_forms/profile_pic_form';
 class Profile extends React.Component {
   constructor(props){
     super(props);
-    //jshint ignore: start
     this.state = {
       imageFile: '',
       modalOpen: false
     };
-    //jshint ignore: end
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addPost = this.addPost.bind(this);
@@ -30,9 +27,6 @@ class Profile extends React.Component {
     this.message
   }
 
-  // componentWillMount() {
-  //   this.props.posts.posts = [];
-  // }
 
   shouldComponentUpdate(nextProps) {
     return Boolean(nextProps.currentUser);
@@ -91,7 +85,6 @@ class Profile extends React.Component {
     this.form = <CreatePostForm makeAPost={ this.props.makeAPost }
                     closeModal={ this.closeModal }/>
     this.openModal();
-    // document.getElementsByClassName('modal-2')[0].style.visibility = "visible";
   }
 
   toggFollow() {
@@ -110,7 +103,6 @@ class Profile extends React.Component {
     formData.append('user[avatar]', this.state.imageFile);
     this.props.updateProfilePic(this.props.user.id, formData);
     this.closeModal();
-    // document.getElementsByClassName('modal-1')[0].style.visibility = "hidden";
     e.currentTarget.children[0].value = '';
   }
 

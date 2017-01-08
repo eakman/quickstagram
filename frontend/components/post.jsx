@@ -66,7 +66,6 @@ class Post extends React.Component {
                           body: this.props.postObj.description,
                           id: -1};
     return(
-    //jshint ignore: start
         <li key={"post" + this.props.i} >
           <section key={"post-header" + this.props.i} className='post-header group'>
             <img key={"post-av" + this.props.i}
@@ -108,7 +107,6 @@ class Post extends React.Component {
             </div>
           </section>
         </li>
-    //jshint ignore: end
     );
   }
 }

@@ -19,7 +19,7 @@ class LikeCommentForm extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setLikeImages(nextProps);
   }
-  //5)
+
   componentDidMount() {
     this.setLikeImages(this.props);
   }
@@ -27,7 +27,7 @@ class LikeCommentForm extends React.Component {
   componentWillUpdate(nexProps, nextState) {
 
   }
-  //6)
+
   setLikeImages(props){
     const likes = props.post.likes;
     let likeImg = window.like;
@@ -38,7 +38,7 @@ class LikeCommentForm extends React.Component {
     }
     this.setState({likeImage: likeImg});
   }
-  //7))
+
   handleLike() {
     return this.props.likeAPost(this.props.postId);
   }

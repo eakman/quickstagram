@@ -1,9 +1,5 @@
-# json.array! @users, :id, :username, :avatar
-
-  json.array! @stuff do |thing|
-    # debugger
+json.array! @stuff do |thing|
     if (thing.class == User)
-      # debugger
       json.extract! thing, :id, :username, :avatar
     else
       json.id thing.id

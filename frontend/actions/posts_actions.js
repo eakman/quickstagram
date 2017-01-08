@@ -81,21 +81,3 @@ export const receiveAPost = (post) => ({
     type: RECEIVE_A_POST,
     post
 });
-
-
-//
-// export const getPost = (post) => {
-//   return (dispatch) => {
-//     return APIUtil.getPost(post)
-//       .then( posts => dispatch(receivePost(posts)),
-//             errors => dispatch(receivePostErrors(errors.responseJSON)));
-//   };
-// };
-//
-// export const getAllPosts = (user) => {
-//   return (dispatch) => {
-//     return APIUtil.getAllPosts(user)
-//       .then( posts => dispatch(receiveAllPosts(posts)),
-//             errors => dispatch(receivePostErrors(errors.responseJSON)));
-//   };
-// };
