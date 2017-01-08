@@ -35,6 +35,12 @@
   # 'app/assets/images/seed/wqw4mli5qsq-redd-angelo.jpg']
 
   POSTS = [
+  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/x_niqkkzvgm-annie-spratt.jpg',
+  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/wqw4mli5qsq-redd-angelo.jpg',
+  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/tb5a-qti6xg-jamie-street.jpg',
+  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/t05kfheygbe-matthew-skinner.jpg',
+  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/swpq9fqgfg0-annie-spratt.jpg',
+  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/ravwym3xk7y-adam-birkett.jpg',
   'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/ph88thg-1yw-caleb-george.jpg',
   'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/oyco1xsyrq0-andre-branco.jpg',
   'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/onus-vjdeuo-jorge-flores.jpg',
@@ -51,12 +57,12 @@
   'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/grgympbxhdk-tao_jinjin.jpg',
   'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/fdkf3fkwek0-daniel-kainz.jpg',
   'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/ehpyd4u5830-kalen-emsley.jpg',
-  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/d6rsa8pmyko-steinar-la-engeland.jpg',
-  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/alop5glz3n0-stephan-vance.jpg',
-  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/_ez2_yab-ly-joel-filipe.jpg',
-  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/8v8qciio554-sarah-neighbour.jpg',
-  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/8ewxo2mhtjs-blake-richard-verdoorn.jpg',
-  'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/6w9xap6wm3w-ayo-ogunseinde.jpg']
+'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/d6rsa8pmyko-steinar-la-engeland.jpg',
+'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/alop5glz3n0-stephan-vance.jpg',
+'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/_ez2_yab-ly-joel-filipe.jpg',
+'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/8v8qciio554-sarah-neighbour.jpg',
+'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/8ewxo2mhtjs-blake-richard-verdoorn.jpg',
+'https://s3.amazonaws.com/quickstagram-prod/static_images/posts/6w9xap6wm3w-ayo-ogunseinde.jpg']
 
 
   User.destroy_all
