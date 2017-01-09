@@ -2,7 +2,7 @@
 
 ### [Quickstagram live](https://quickstagram.herokuapp.com/#/)
 
-Quickstagram is a picture sharing app inspired by Instagram. Like Instagram, it gives users the ability to upload and and share photos with with their followers. One can also browse user profiles as well as comment and like posts.
+Quickstagram is a picture sharing app inspired by Instagram. Like Instagram, it gives users the ability to upload and share photos with with their followers. It can also be used to browse user profiles as well as comment and like posts.
 
 Quickstagram was built using Rails and PostgresQL on the backend and React Redux on the front.
 
