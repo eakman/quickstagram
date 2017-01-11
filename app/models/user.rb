@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
       source: :posts
 
     def self.get_followed_posts(user, page_number)
-      follows = user.follows.select('id')
+      follows = user.follows.select('followed_id')
       Post.where('user_id = ? OR user_id IN( ? )', user.id, follows)
         .includes(:user, :likes, {comments: :user})
         .order('created_at DESC')
