@@ -38,7 +38,14 @@ class Profile extends React.Component {
   }
 
   openModal(){
-    this.setState({ modalOpen: true });
+    this.setState({ modalOpen: true }, ()=>{
+      document.getElementsByClassName('ReactModal__Body--open')[0].addEventListener('click', (e)=>{
+        if (e.target.className.slice(0,5) === 'React' || e.target.className === 'upload-form' ){
+          this.closeModal();
+        }
+
+      });
+    });
   }
 
   componentDidMount() {

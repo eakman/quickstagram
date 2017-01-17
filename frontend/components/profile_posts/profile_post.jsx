@@ -23,7 +23,13 @@ class ProfilePost extends React.Component {
   }
 
   openModal(){
-    this.setState({ modalOpen: true });
+    this.setState({ modalOpen: true }, ()=>{
+      document.getElementsByClassName('ReactModal__Body--open')[0].addEventListener('click', (e)=>{
+        if (e.target.className.slice(0,5) === 'React' || e.target.className === 'upload-form' ){
+          this.closeModal();
+        }
+      });
+    });
   }
 
   handleClick() {
@@ -44,7 +50,7 @@ class ProfilePost extends React.Component {
 
     return (
       <div>
-        <Modal style={ Style } isOpen={this.state.modalOpen} contentLabel={'hello1'} >
+        <Modal style={ Style } isOpen={this.state.modalOpen} shouldCloseOnContentClick={true} contentLabel={'hello1'} >
           <button onClick={this.closeModal} className='modal-button'>x</button>
             <div className='post-show-image-container'>
               <div id='post-show-image'>
