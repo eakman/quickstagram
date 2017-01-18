@@ -32,7 +32,6 @@ class CreatePostForm extends React.Component {
     formData.append('post[location]', this.state.location);
     formData.append('post[description]', this.state.description);
     this.props.makeAPost(formData);
-    // document.getElementsByClassName('modal-2')[0].style.visibility = "hidden";
     this.props.closeModal();
     e.currentTarget.children[0].value = '';
   }

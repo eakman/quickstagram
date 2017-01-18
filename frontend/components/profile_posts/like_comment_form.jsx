@@ -65,8 +65,9 @@ class LikeCommentForm extends React.Component {
     if (likesCount === 1){
       likesCountString = `${ likesCount } like`;
     }
+  
     const description = {
-                          user: {username: this.props.post.user.username},
+                          user: {username: this.props.post.user.username, id: this.props.post.user.id},
                           body: this.props.post.description,
                           id: -1};
     return(
