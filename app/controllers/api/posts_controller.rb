@@ -18,8 +18,7 @@ class Api::PostsController < ApplicationController
   end
 
   def posts_by_tag
-    post_ids = HashTag.where(hash_tag: "##{params[:query]}").select('post_id')
-    @posts = Post.where("id IN (?)", post_ids);
+    @posts = HashTag.get_associated_posts(params[:query])
     render 'api/posts/index2'
   end
 

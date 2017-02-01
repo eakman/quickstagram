@@ -11,9 +11,8 @@ class Api::UsersController < ApplicationController
   end
 
   def search
-    @users = User.where("LOWER(username) ~ ?", params[:query].downcase)
-    @hash_tags = HashTag.select('hash_tag').distinct
-            .where("LOWER(hash_tag) ~ ?", params[:query].downcase)
+    @users = User.search_users(params[:query].downcase)
+    @hash_tags = HashTag.search_hash_tags(params[:query].downcase)
     @stuff = @users + @hash_tags
     render :search
   end
@@ -21,7 +20,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user
-        @is_following = is_following?(@user, current_user.id)
+        @is_following = User.is_following?(@user, current_user.id)
         render :user
     else
       render json: ['something went wrong']
@@ -38,10 +37,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def is_following?(user, other_user)
-    user.followers.select('follower_id').map {|f| p f.follower_id}.include?(other_user)
-  end
-
   def index
     @users = User.all
     render :index
@@ -56,19 +51,9 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def get_follow_id(user)
-    id = current_user.id
-    follow = user.followers.where("follower_id = #{id}")[0]
-    if follow
-      return follow.id
-    else
-      return false
-    end
-  end
-
   def toggle_follow
     @user = User.find(params[:id])
-    follow_id = get_follow_id(@user)
+    follow_id = current_user.get_follow_id(@user)
     if follow_id
       @follow = Follow.find(follow_id)
       @follow.destroy

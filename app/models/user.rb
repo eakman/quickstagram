@@ -85,4 +85,21 @@ class User < ActiveRecord::Base
       (user && user.is_password?(password)) ? user : nil
     end
 
+    def get_follow_id(user)
+      follow = user.followers.find_by(follower_id: self.id)
+      if follow
+        return follow.id
+      else
+        return false
+      end
+    end
+
+    def self.is_following?(user, other_user)
+      user.followers.select('follower_id').map {|f| p f.follower_id}.include?(other_user)
+    end
+
+    def self.search_users(username)
+      User.where("LOWER(username) ~ ?", username)
+    end
+
 end
