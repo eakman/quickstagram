@@ -144,7 +144,6 @@ class Profile extends React.Component {
             className={fButtonClass}>{fButtonText}</button>;
     }
 
-      document.getElementById('title-el').innerHTML = `${this.props.user.username}`;
 
       return(
         <article className='profile-container group'>

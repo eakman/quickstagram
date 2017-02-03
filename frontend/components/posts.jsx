@@ -17,17 +17,17 @@ class Posts extends React.Component {
       }
       return(
         <Post key={ idx } postObj={ postObj } pic={ pic } post_id={ postObj.id }
-            currentUser={ this.props.currentUser } i={ idx }
-            likeAPost={ this.props.likeAPost }
-            makeAComment={ this.props.makeAComment } />
-        );
+          currentUser={ this.props.currentUser } i={ idx }
+          likeAPost={ this.props.likeAPost }
+          makeAComment={ this.props.makeAComment } />
+      );
     });
 
     return(
-          <ul>
-            {allPosts}
-          </ul>
-        );
+      <ul>
+        {allPosts}
+      </ul>
+    );
   }
 }
 export default Posts;

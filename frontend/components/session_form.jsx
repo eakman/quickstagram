@@ -72,7 +72,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    document.getElementById('title-el').innerHTML = 'Quickstagram';
     let errors = '';
     if (this.hideErrors === true){
       errors = '';

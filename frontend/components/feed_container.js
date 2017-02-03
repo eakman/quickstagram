@@ -9,7 +9,7 @@ const mapStateToProps = ({ posts, session }) => {
   return(
     {
       currentUser: session.currentUser,
-      posts
+      posts: posts.posts
     }
   );
 };
