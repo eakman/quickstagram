@@ -1,8 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import Style from '../modal_style';
-import Comments from '../comments';
-import Comment from '../comment';
+import Comments from '../comments/comments';
+import Comment from '../comments/comment';
 import LikeCommentFormContainer from './like_comment_form_container';
 
 class ProfilePost extends React.Component {

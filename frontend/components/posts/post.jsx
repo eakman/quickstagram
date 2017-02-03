@@ -1,7 +1,7 @@
 import React from 'react';
-import createTimeStamp from '../util/create_time_stamp_util';
-import Comments from './comments';
-import Comment from './comment';
+import createTimeStamp from '../../util/create_time_stamp_util';
+import Comments from '../comments/comments';
+import Comment from '../comments/comment';
 
 class Post extends React.Component {
   constructor(props) {
@@ -13,7 +13,6 @@ class Post extends React.Component {
     };
 
     this.handleLike = this.handleLike.bind(this);
-
     this.setLikeImages = this.setLikeImages.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);

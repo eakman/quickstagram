@@ -27,13 +27,11 @@ class Profile extends React.Component {
     this.message
   }
 
-
   shouldComponentUpdate(nextProps) {
     return Boolean(nextProps.currentUser);
   }
 
   closeModal(){
-
     this.setState({ modalOpen: false });
   }
 
@@ -43,20 +41,15 @@ class Profile extends React.Component {
         if (e.target.className.slice(0,5) === 'React' || e.target.className === 'upload-form' ){
           this.closeModal();
         }
-
       });
     });
   }
 
   componentDidMount() {
-
     const user_id = this.props.router.params.id;
     this.props.fetchUser(user_id);
     this.props.getUserPosts(user_id);
-
   }
-
-
 
   componentWillReceiveProps(nextProps, nextState) {
     if (nextProps.params.id !== this.props.params.id){
@@ -70,9 +63,9 @@ class Profile extends React.Component {
         if (nextProps.user && nextProps.currentUser){
           if (nextProps.user.id === nextProps.currentUser.id) {
             this.message = <h1 className='message'>Welcome, click the add post button to start adding pictures!</h1>;
-            } else {
+          } else {
               this.message = <h1 className='message'>This user has no posts yet!</h1>
-            }
+          }
         }
       }
   }
@@ -81,13 +74,11 @@ class Profile extends React.Component {
     this.form = <ProfilePicForm handleSubmit={this.handleSubmit} updateFile={this.updateFile} />
     e.preventDefault();
     if (this.props.user.id === this.props.currentUser.id){
-
       this.openModal();
     }
   }
 
   addPost(e) {
-
     e.preventDefault();
     this.form = <CreatePostForm makeAPost={ this.props.makeAPost }
                     closeModal={ this.closeModal }/>
@@ -101,7 +92,6 @@ class Profile extends React.Component {
   updateFile (e) {
     const file = e.currentTarget.files[0];
     this.setState({ imageFile: file });
-
   }
 
   handleSubmit(e) {
@@ -114,9 +104,7 @@ class Profile extends React.Component {
   }
 
   handleLogOut() {
-
     this.props.logOut().then(() => this.props.router.push('/log_in'));
-
   }
 
   logoutModal() {

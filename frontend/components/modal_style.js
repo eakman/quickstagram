@@ -1,5 +1,3 @@
-
-
 const Style = {
   overlay : {
     position        : 'fixed',

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class CreatePostForm extends React.Component {
   constructor(props){
     super(props);
@@ -14,15 +13,14 @@ class CreatePostForm extends React.Component {
   }
 
   updateFile (e) {
-
     if (e.currentTarget.attributes.name.nodeValue === 'image') {
-        const file = e.currentTarget.files[0];
-        this.setState({ imageFile: file });
-      } else if (e.currentTarget.attributes.name.nodeValue === 'description'){
-        this.setState({ description: e.currentTarget.value});
-      } else if (e.currentTarget.attributes.name.nodeValue === 'location'){
-        this.setState({ location: e.currentTarget.value});
-      }
+      const file = e.currentTarget.files[0];
+      this.setState({ imageFile: file });
+    } else if (e.currentTarget.attributes.name.nodeValue === 'description'){
+      this.setState({ description: e.currentTarget.value});
+    } else if (e.currentTarget.attributes.name.nodeValue === 'location'){
+      this.setState({ location: e.currentTarget.value});
+    }
   }
 
   handleSubmit(e) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import createTimeStamp from '../util/create_time_stamp_util';
+import createTimeStamp from '../../util/create_time_stamp_util';
 import Post from './post';
 
 class Posts extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Posts from './posts';
+import Posts from './posts/posts';
 import Header from './header';
 
 class Main extends React.Component {

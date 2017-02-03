@@ -1,6 +1,5 @@
 import React from 'react';
-import Posts from './posts';
-
+import Posts from './posts/posts';
 
 class Feed extends React.Component {
   constructor(props) {

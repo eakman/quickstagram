@@ -25,7 +25,6 @@ class SessionForm extends React.Component {
   }
 
   guestLogin(e) {
-
     e.preventDefault();
     const guest = {username: 'guest', password: 'password'};
     return this.props.logIn(guest).then(() => this.props.router.push('/main/feed'));
@@ -50,7 +49,6 @@ class SessionForm extends React.Component {
   }
 
   toggleFormType() {
-
     if (this.state.formType === 'Log in') {
       this.setState(
         {
@@ -58,8 +56,6 @@ class SessionForm extends React.Component {
           accountStatusText: 'Have an account?',
           accountStatusLinkText: 'Log in'
         });
-
-
     } else {
       this.setState(
         {
@@ -67,7 +63,6 @@ class SessionForm extends React.Component {
           accountStatusText: "Don't have an account yet?",
           accountStatusLinkText: 'Sign up'
       });
-
     }
   }
 
@@ -85,10 +80,8 @@ class SessionForm extends React.Component {
 
       <div className="initial-container">
         <div className="iContainer group">
-
-
-        <img className="iPhones" src={ window.phones } />
-        <img className="screen-shot" src={ window.screenShot1 } />
+          <img className="iPhones" src={ window.phones } />
+          <img className="screen-shot" src={ window.screenShot1 } />
         </div>
         <section className="log-in-sign-up group">
           <section className="log-in group">

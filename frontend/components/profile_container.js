@@ -7,7 +7,6 @@ import { getUserPosts, makeAPost } from '../actions/posts_actions';
 import { logOut } from '../actions/session_actions';
 
 const mapStateToProps = ({ posts, session, user: { user } }) => {
-
   return(
     {
       currentUser: session.currentUser,

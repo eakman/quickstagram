@@ -1,6 +1,6 @@
 import React from 'react';
-import Comments from '../comments';
-import Comment from '../comment';
+import Comments from '../comments/comments';
+import Comment from '../comments/comment';
 
 class LikeCommentForm extends React.Component {
   constructor(props) {
@@ -65,7 +65,7 @@ class LikeCommentForm extends React.Component {
     if (likesCount === 1){
       likesCountString = `${ likesCount } like`;
     }
-  
+
     const description = {
                           user: {username: this.props.post.user.username, id: this.props.post.user.id},
                           body: this.props.post.description,
