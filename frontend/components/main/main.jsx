@@ -1,6 +1,6 @@
 import React from 'react';
-import Posts from './posts/posts';
-import Header from './header';
+import Posts from '../posts/posts';
+import Header from '../header';
 
 class Main extends React.Component {
   constructor(props) {

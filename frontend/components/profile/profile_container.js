@@ -2,9 +2,9 @@ import React from 'react';
 import Profile from './profile';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { fetchUser, updateProfilePic, toggFollow } from '../actions/user_actions';
-import { getUserPosts, makeAPost } from '../actions/posts_actions';
-import { logOut } from '../actions/session_actions';
+import { fetchUser, updateProfilePic, toggFollow } from '../../actions/user_actions';
+import { getUserPosts, makeAPost } from '../../actions/posts_actions';
+import { logOut } from '../../actions/session_actions';
 
 const mapStateToProps = ({ posts, session, user: { user } }) => {
   return(

@@ -1,10 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal';
-import ProfilePosts from './profile_posts/profile_posts';
-import CreatePostForm from './profile_posts/create_post_form';
+import ProfilePosts from '../profile_posts/profile_posts';
+import CreatePostForm from '../profile_posts/create_post_form';
 import { withRouter } from 'react-router';
-import Style from './modal_style';
-import ProfilePicForm from './profile_forms/profile_pic_form';
+import Style from '../modal_style';
+import ProfilePicForm from '../profile_forms/profile_pic_form';
 
 
 class Profile extends React.Component {
