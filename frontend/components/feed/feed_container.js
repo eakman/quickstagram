@@ -1,6 +1,6 @@
 import React from 'react';
-import { logOut } from '../actions/session_actions';
-import { getAllPosts, likeAPost, makeAComment, getMorePosts } from '../actions/posts_actions';
+import { logOut } from '../../actions/session_actions';
+import { getAllPosts, likeAPost, makeAComment, getMorePosts } from '../../actions/posts_actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Feed from './feed';

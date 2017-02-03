@@ -1,9 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import App from './app';
-import SessionFormContainer from './session_form_container';
+import SessionFormContainer from './sessions/session_form_container';
 import MainContainer from './main_container';
-import FeedContainer from './feed_container';
+import FeedContainer from './feed/feed_container';
 import ProfileContainer from './profile_container';
 import { Router, Route, IndexRoute, hashHistory, IndexRedirect } from 'react-router';
 import SearchResultsContainer from './search/search_results_container';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Errors from './errors';
+import Errors from '../errors';
 
 class SessionForm extends React.Component {
   constructor(props) {
